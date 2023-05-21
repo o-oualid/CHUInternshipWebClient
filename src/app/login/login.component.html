@@ -32,18 +32,17 @@
         <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-5 gap-6">
           <div class="block col-span-6 sm:col-span-4">
             <label
-              for="UserName"
+              for="Email"
               class="block text-sm font-medium text-gray-700 dark:text-gray-200"
             >
-              User Name
+            Email
             </label>
 
             <input
               type="text"
-              id="UserName"
-              name="user_name"
+              id="Email"
               class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              formControlName="userName"
+              formControlName="email"
 
             />
           </div>

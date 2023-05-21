@@ -1,14 +1,14 @@
 export class User{
   id:BigInt;
-  firstName:String;
-  lastName:String;
-  email:String;
-  password:String;
-  joinedAt:String;
-  role:String;
+  firstName:string;
+  lastName:string;
+  email:string;
+  password:string;
+  joinedAt:string;
+  role:string;
 
 
-  constructor(id: BigInt, firstName: String, lastName: String, email: String, password: String, joinedAt: String, role: String) {
+  constructor(id: BigInt, firstName: string, lastName: string, email: string, password: string, joinedAt: string, role: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;

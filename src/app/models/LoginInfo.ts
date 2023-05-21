@@ -1,11 +1,11 @@
 export class LoginInfo {
 
-  public userName: String;
+  public email: String;
 
   public password: String;
 
-  constructor(userName: String, password: String) {
-    this.userName = userName;
+  constructor(email: String, password: String) {
+    this.email = email;
     this.password = password;
   }
 }

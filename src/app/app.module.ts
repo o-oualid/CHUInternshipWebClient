@@ -14,6 +14,8 @@ import {FooterComponent} from './core/footer/footer.component';
 import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {BaseComponent} from './core/base/base.component';
 import {SetupService} from "./setup/setup.service";
+import { AccountDetailsComponent } from './account/details/account-details.component';
+import { AccountSecurityComponent } from './account/security/account-security.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {SetupService} from "./setup/setup.service";
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    BaseComponent
+    BaseComponent,
+    AccountDetailsComponent,
+    AccountSecurityComponent
   ],
   imports: [
     BrowserModule,

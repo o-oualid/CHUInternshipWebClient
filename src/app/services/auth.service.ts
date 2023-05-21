@@ -3,15 +3,21 @@ import {HttpClient} from "@angular/common/http";
 import {AuthDetails} from "../models/AuthDetails";
 import {environment} from "../../environments/environment";
 import {LoginInfo} from "../models/LoginInfo";
+import {authStorageService} from "./auth-storage.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) {
+  constructor(private authStorage: authStorageService, private http: HttpClient, private router: Router) {
   }
 
   login(loginInfo: LoginInfo) {
-    return this.http.post<AuthDetails>(environment.apiEndPoint + "/login", loginInfo);
+    return this.http.post<AuthDetails>(environment.apiEndPoint + "/login", loginInfo).subscribe(res => {
+      this.authStorage.store(res);
+      this.router.navigateByUrl("/")
+    }
+    );
   }
 }

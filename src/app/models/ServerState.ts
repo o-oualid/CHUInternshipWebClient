@@ -1,7 +1,8 @@
 export class ServerState {
-  isSetup:boolean;
+  setup: boolean;
 
-  constructor(isSetup: boolean) {
-    this.isSetup = isSetup;
+
+  constructor(setup: boolean) {
+    this.setup = setup;
   }
 }

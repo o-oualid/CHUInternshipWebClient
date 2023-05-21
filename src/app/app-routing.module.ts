@@ -2,24 +2,36 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
-import {isLoggedIn, isServerSetedup} from "./guards";
+import {isLoggedIn, isNotLoggedIn, isServerNotSetup, isServerSetup} from "./guards";
 import {BaseComponent} from "./core/base/base.component";
+import {AccountDetailsComponent} from "./account/details/account-details.component";
+import {AccountSecurityComponent} from "./account/security/account-security.component";
 
 const routes: Routes = [
     {
       path: "setup",
-      canActivate: [!isServerSetedup],
+      canActivate: [isServerNotSetup],
       loadChildren: () => import('./setup/setup.module').then(m => m.SetupModule),
       pathMatch: 'full'
     },
-    {path: 'login', canActivate: [isServerSetedup, !isLoggedIn], component: LoginComponent, pathMatch: 'full'},
+    {path: 'login', canActivate: [isServerSetup, isNotLoggedIn], component: LoginComponent, pathMatch: 'full'},
     {
-      path: '', component: BaseComponent, canActivate: [isServerSetedup, isLoggedIn],
-      children: [{
-        path: 'users',
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
-        pathMatch: 'prefix'
-      }]
+      path: '', component: BaseComponent,
+      canActivate: [isServerSetup, isLoggedIn],
+      children: [
+        {
+          path: 'users',
+          loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+          pathMatch: 'prefix'
+        },
+        {path: 'account/details', component: AccountDetailsComponent, pathMatch: 'full'},
+        {path: 'account/security', component: AccountSecurityComponent, pathMatch: 'full'},
+        {
+          path: '',
+          redirectTo: 'users',
+          pathMatch: 'full'
+        }
+      ]
     },
     {path: '**', component: NotFoundComponent}
   ]
