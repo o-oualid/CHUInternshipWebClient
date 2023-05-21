@@ -13,7 +13,6 @@ export class SidebarComponent {
   email = localStorage.getItem("email");
 
   constructor(private authStorage: authStorageService, public router: Router) {
-    console.log(router.url)
   }
 
 

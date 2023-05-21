@@ -59,6 +59,7 @@
 
       />
     </div>
+
     <div class="block col-span-4 sm:col-span-4">
       <label
         for="Role"
@@ -77,12 +78,52 @@
         <option>USER</option>
       </select>
     </div>
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+
+<div class="block col-span-4 sm:col-span-4">
+  <label
+    for="joinedAt"
+    class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+  >
+    Joining Date
+  </label>
+
+  <input type="text"
+    id="joinedAt"
+    class="disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:text-gray-400 dark:disabled:bg-gray-700 mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+    formControlName="joinedAt"
+
+  >
+</div>
+
+    <div class="block col-span-4 sm:col-span-4">
+      <label
+        for="active"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Active
+      </label>
+
+      <input
+        type="checkbox"
+        id="active"
+        class="disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:text-gray-400 dark:disabled:bg-gray-700 mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="active"
+
+      >
+    </div>
+
+    <div class="col-span-4 sm:flex sm:items-center sm:gap-4">
       <input type="submit" [disabled]="true"
              class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 enabled:focus:outline-none enabled:focus:ring enabled:active:text-blue-500 enabled:dark:hover:bg-blue-700 enabled:dark:hover:text-white"
              value="Update Details"
       />
+    </div>
 
+    <div class="col-span-4 sm:flex sm:items-center sm:gap-4">
+      <input type="submit" [disabled]="true"
+             class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-red-600 bg-red-600 px-12 py-3 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 enabled:focus:outline-none enabled:focus:ring enabled:active:text-red-500 enabled:dark:hover:bg-blue-red enabled:dark:hover:text-white"
+             value="Delete user"
+      />
     </div>
   </form>
 </div>

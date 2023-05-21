@@ -4,6 +4,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../models/User";
 import {UsersService} from "../users/users.service";
 import {AuthService} from "../services/auth.service";
+import {flatMap, mergeMap} from "rxjs";
 
 @Component({
   selector: 'app-invite',
@@ -12,7 +13,7 @@ import {AuthService} from "../services/auth.service";
 })
 export class JoinComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router:Router,
+  constructor(private route: ActivatedRoute, private router: Router,
               private formBuilder: FormBuilder,
               private usersService: UsersService, private authService: AuthService) {
   }
@@ -27,10 +28,10 @@ export class JoinComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.pipe(mergeMap(params => {
       this.code = params.get('code') ?? '';
-      this.usersService.getInvitedUser(this.code).subscribe(res => this.user = res,error=>this.router.navigateByUrl('/notFound') );
-    });
+      return this.usersService.getInvitedUser(this.code)
+    })).subscribe(res => this.user = res, error => this.router.navigateByUrl('/notFound'));
   }
 
   submit() {

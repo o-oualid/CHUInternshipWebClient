@@ -6,7 +6,7 @@ import {isInvited, isLoggedIn, isNotLoggedIn, isServerNotSetup, isServerSetup} f
 import {BaseComponent} from "./core/base/base.component";
 import {AccountDetailsComponent} from "./account/details/account-details.component";
 import {AccountSecurityComponent} from "./account/security/account-security.component";
-import {JoinComponent} from "./invite/join.component";
+import {JoinComponent} from "./join/join.component";
 
 const routes: Routes = [
     {
