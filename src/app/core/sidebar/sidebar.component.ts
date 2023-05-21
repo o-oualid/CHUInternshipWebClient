@@ -12,8 +12,8 @@ export class SidebarComponent {
   userName = localStorage.getItem("userName");
   email = localStorage.getItem("email");
 
-  constructor(private authStorage: authStorageService, private router: Router) {
-
+  constructor(private authStorage: authStorageService, public router: Router) {
+    console.log(router.url)
   }
 
 

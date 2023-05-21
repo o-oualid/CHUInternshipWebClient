@@ -2,10 +2,11 @@ import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
-import {isLoggedIn, isNotLoggedIn, isServerNotSetup, isServerSetup} from "./guards";
+import {isInvited, isLoggedIn, isNotLoggedIn, isServerNotSetup, isServerSetup} from "./guards";
 import {BaseComponent} from "./core/base/base.component";
 import {AccountDetailsComponent} from "./account/details/account-details.component";
 import {AccountSecurityComponent} from "./account/security/account-security.component";
+import {JoinComponent} from "./invite/join.component";
 
 const routes: Routes = [
     {
@@ -33,7 +34,13 @@ const routes: Routes = [
         }
       ]
     },
-    {path: '**', component: NotFoundComponent}
+    {
+      path: 'join/:code',
+      component: JoinComponent,
+      canActivate: [isServerSetup, isInvited]
+    },
+    {path: 'notFound', component: NotFoundComponent},
+    {path: '**', redirectTo: 'notFound'}
   ]
 ;
 

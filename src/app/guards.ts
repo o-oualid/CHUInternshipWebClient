@@ -29,3 +29,7 @@ export const isNotLoggedIn: CanActivateFn = (route: ActivatedRouteSnapshot, stat
     parseInt(localStorage.getItem("ttl") || "0") < Date.now().valueOf()) return router.parseUrl("/");
   else return true;
 }
+
+export const isInvited:CanActivateFn=(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  return true;
+}

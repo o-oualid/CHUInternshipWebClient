@@ -16,6 +16,7 @@ import {BaseComponent} from './core/base/base.component';
 import {SetupService} from "./setup/setup.service";
 import { AccountDetailsComponent } from './account/details/account-details.component';
 import { AccountSecurityComponent } from './account/security/account-security.component';
+import { JoinComponent } from './invite/join.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AccountSecurityComponent } from './account/security/account-security.co
     SidebarComponent,
     BaseComponent,
     AccountDetailsComponent,
-    AccountSecurityComponent
+    AccountSecurityComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,
