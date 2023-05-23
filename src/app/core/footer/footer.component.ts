@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {window} from "rxjs";
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+    protected readonly Date = Date;
+  protected readonly window = window;
+
+  moveToTop() {
+    const element = document.querySelector('#top');
+    element?.scrollIntoView();
+  }
 }

@@ -42,7 +42,7 @@ export class CreatePatientComponent implements OnInit {
     if (this.form.invalid) return;
 
     this.patientService.create({
-      id: -1.0,
+      id: '',
       firstName: this.form.get('firstName')?.getRawValue(),
       lastName: this.form.get('lastName')?.getRawValue(),
       cin: this.form.get('cin')?.getRawValue(),

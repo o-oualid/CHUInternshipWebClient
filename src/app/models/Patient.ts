@@ -1,6 +1,6 @@
 export class Patient {
 
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   cin: string;
@@ -13,7 +13,7 @@ export class Patient {
   discoveryDate: string;
   notes: string;
 
-  constructor(id: number, fistName: string, lastName: string, cin: string, birthDate: string, gender: string, phone: string, diabetesTypeId: bigint, regionId: bigint, referable: boolean, discoveryDate: string, notes: string) {
+  constructor(id: string, fistName: string, lastName: string, cin: string, birthDate: string, gender: string, phone: string, diabetesTypeId: bigint, regionId: bigint, referable: boolean, discoveryDate: string, notes: string) {
     this.id = id;
     this.firstName = fistName;
     this.lastName = lastName;

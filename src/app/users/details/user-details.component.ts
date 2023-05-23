@@ -62,9 +62,6 @@ export class UserDetailsComponent implements OnInit {
       this.form.controls['role'].patchValue(this.user.role)
       this.form.controls['joinedAt'].patchValue(this.user.joinedAt)
       this.form.controls['active'].patchValue(this.user.active)
-
-
-
     }, error => this.router.navigateByUrl('/notFound'));
   }
 }
