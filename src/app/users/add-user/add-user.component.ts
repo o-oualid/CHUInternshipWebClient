@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {UsersService} from "../users.service";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-add-user',
@@ -24,7 +23,7 @@ export class AddUserComponent {
 
     this.userService.invite({
       firstName: this.form.get('firstName')?.getRawValue(),
-      lastName: this.form.get('firstName')?.getRawValue(),
+      lastName: this.form.get('lastName')?.getRawValue(),
       email: this.form.get('email')?.getRawValue(),
       role: this.form.get('role')?.getRawValue(),
     }).subscribe(res => console.log(res));

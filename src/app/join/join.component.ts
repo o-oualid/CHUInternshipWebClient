@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../models/User";
-import {UsersService} from "../users/users.service";
+import {UsersService} from "../services/users.service";
 import {AuthService} from "../services/auth.service";
 import {flatMap, mergeMap} from "rxjs";
 

@@ -31,9 +31,9 @@ export class UsersService {
     return this.http.get<User>(environment.apiEndPoint + `/users/invited/${inviteCode}`);
   }
 
-  getUser(id: bigint) {
+  getUser(id: string) {
     const headers: { Authorization: string } = {
-      'Authorization': 'Bearer ' + localStorage.getItem("token"),
+      'Authorization': 'Bearer ' + localStorage.getItem("token")
     };
     return this.http.get<User>(environment.apiEndPoint + `/users/${id}`, {headers});
   }

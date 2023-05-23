@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../../models/User";
-import {UsersService} from "../users.service";
+import {UsersService} from "../../services/users.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {mergeMap} from "rxjs";
 
@@ -52,7 +52,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.pipe(mergeMap(params => {
-      this.user.id = BigInt(params.get('id') ?? '').valueOf();
+      this.user.id = params.get('id') ?? '';
       return this.usersService.getUser(this.user.id)
     })).subscribe(res => {
       this.user = res;

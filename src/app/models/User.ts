@@ -1,5 +1,5 @@
 export class User {
-  id: bigint;
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -8,8 +8,7 @@ export class User {
   role: string;
   active: boolean;
 
-
-  constructor(id: bigint, firstName: string, lastName: string, email: string, password: string, joinedAt: string, role: string, active: boolean) {
+  constructor(id: string, firstName: string, lastName: string, email: string, password: string, joinedAt: string, role: string, active: boolean) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
