@@ -30,6 +30,11 @@ const routes: Routes = [
           loadChildren: () => import('./images/images.module').then(m => m.ImagesModule),
           pathMatch: 'prefix'
         },
+        {
+          path: 'patients',
+          loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule),
+          pathMatch: 'prefix'
+        },
         {path: 'account/details', component: AccountDetailsComponent, pathMatch: 'full'},
         {path: 'account/security', component: AccountSecurityComponent, pathMatch: 'full'},
         {

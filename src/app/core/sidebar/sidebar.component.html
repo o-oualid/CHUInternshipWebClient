@@ -1,5 +1,5 @@
 <div
-  class="fixed top-0 flex h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
+  class="select-none fixed top-0 flex h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
   <div class="px-4 py-6">
     <span
       class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
@@ -38,7 +38,71 @@
 
       <details class="group [&_summary::-webkit-details-marker]:hidden">
         <summary
-          class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/patients') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
+        >
+          <div class="flex items-center gap-2 " >
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-5 w-5 opacity-75"
+                 fill="currentColor"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+            >
+              <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+              <path
+                d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+            </svg>
+
+            <span class="select-none text-sm font-medium"> Patients </span>
+          </div>
+
+          <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </summary>
+
+        <nav aria-label="Images Nav" class="mt-2 flex flex-col px-4">
+          <a [routerLink]="['/patients']"
+             class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/patients' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+
+            <span class="text-sm font-medium"> List </span>
+          </a>
+
+          <a
+            [routerLink]="['/patients/create']"
+            class="{{router.url==='/patients/create' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
+              <path
+                d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+              <path fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+
+            <span class="text-sm font-medium"> Create </span>
+          </a>
+        </nav>
+      </details>
+
+
+      <details class="group [&_summary::-webkit-details-marker]:hidden">
+        <summary
+          class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/images') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} "
         >
           <div class="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +136,7 @@
         </summary>
 
         <nav aria-label="Images Nav" class="mt-2 flex flex-col px-4">
-          <a
-            [routerLink]="['/images']"
+          <a [routerLink]="['/images']"
             class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/images' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
@@ -95,13 +158,13 @@
                     d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
             </svg>
 
-            <span class="text-sm font-medium"> Invite </span>
+            <span class="text-sm font-medium"> Create </span>
           </a>
         </nav>
       </details>
       <details class="group [&_summary::-webkit-details-marker]:hidden">
         <summary
-          class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          class="{{router.url.startsWith('/users') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}  flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
         >
           <div class="flex items-center gap-2">
             <svg
@@ -168,7 +231,7 @@
       </details>
       <details class="group [&_summary::-webkit-details-marker]:hidden">
         <summary
-          class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700  dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          class="{{router.url.startsWith('/account') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700  dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
         >
           <div class="flex items-center gap-2">
             <svg
