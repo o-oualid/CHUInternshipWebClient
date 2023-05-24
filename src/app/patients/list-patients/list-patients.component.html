@@ -1,6 +1,6 @@
 <div class="width-m">
   <table
-    class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900"
+    class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900 rounded-lg"
   >
     <tr class="select-none">
       <th (click)="sort('firstName')"
@@ -41,43 +41,43 @@
         </svg>
         Birth Date
       </th>
-      <th (click)="sort('role')"
+      <th (click)="sort('gender')"
           class="text-left cursor-pointer whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
       >
-        <svg *ngIf="sortBy==='role'&&asc" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline"
+        <svg *ngIf="sortBy==='gender'&&asc" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline"
              fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
                 d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
           <path
             d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
         </svg>
-        <svg *ngIf="sortBy==='role'&&!asc" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+        <svg *ngIf="sortBy==='gender'&&!asc" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
              class="h-5 w-5 inline" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
                 d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
           <path
             d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
         </svg>
-        Role
+        Sex
       </th>
-      <th (click)="sort('email')"
+      <th (click)="sort('referable')"
           class="text-left	cursor-pointer whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
       >
-        <svg *ngIf="sortBy==='email'&&asc" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline"
+        <svg *ngIf="sortBy==='referable'&&asc" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline"
              fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
                 d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
           <path
             d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
         </svg>
-        <svg *ngIf="sortBy==='email'&&!asc" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+        <svg *ngIf="sortBy==='referable'&&!asc" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
              class="h-5 w-5 inline" viewBox="0 0 16 16">
           <path fill-rule="evenodd"
                 d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
           <path
             d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
         </svg>
-        Email
+        Referable
       </th>
       <th class="px-4 py-2"></th>
     </tr>
@@ -120,7 +120,7 @@
     <li>
       <a *ngIf="page.number!==0"
          (click)="updatePage(page.number-1)"
-         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 active:shadow-inner dark:text-gray-100 dark:hover:bg-gray-700"
       >
         <span class="sr-only">Prev Page</span>
         <svg
@@ -141,12 +141,12 @@
     <li *ngFor="let i of range(Math.max(page.number-5,0),Math.min(page.number+6,page.totalPages))">
 
       <a *ngIf="page.number===i"
-         class="select-none cursor-pointer block h-8 w-8 rounded border-blue-600 bg-blue-600 text-center leading-8 dark:text-white hover:bg-blue-700">
+         class="select-none cursor-pointer block h-8 w-8 rounded bg-gray-300  text-center leading-8 dark:bg-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 active:shadow-inner">
         {{i}}
       </a>
 
       <a *ngIf="page.number!==i" (click)="updatePage(i)"
-         class="select-none cursor-pointer block h-8 w-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900 dark:border-gray-800 dark:bg-gray-900 dark:text-white hover:bg-blue-700">
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 dark:text-gray-100 dark:hover:bg-gray-700 active:shadow-inner">
         {{i}}
       </a>
     </li>
@@ -154,7 +154,7 @@
     <li>
       <a *ngIf="page.number!==page.totalPages-1"
          (click)="updatePage(page.number+1)"
-         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 dark:border-gray-800 dark:bg-gray-900 dark:text-white hover:bg-blue-700"
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 active:shadow-inner dark:text-gray-100 dark:hover:bg-gray-700"
       >
         <span class="sr-only">Next Page</span>
         <svg

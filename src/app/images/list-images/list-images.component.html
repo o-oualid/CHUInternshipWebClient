@@ -1,1 +1,66 @@
-<p>list-images works!</p>
+<div class="width-m">
+  <div class="flex gap-3 flex-wrap">
+    <a *ngFor="let image of page.content" class="cursor-pointer" routerLink="/images/{{image.id}}">
+      <div class="p-1 rounded-lg shadow shadow-gray-950 bg-gray-100 dark:bg-gray-900">
+        <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image" class="w-64 h-64 object-cover rounded-lg">
+      </div>
+    </a>
+  </div>
+
+  <ol class="flex justify-center gap-1 text-xs font-medium mt-8">
+    <li>
+      <a *ngIf="page.number!==0"
+         (click)="updatePage(page.number-1)"
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 active:shadow-inner dark:text-gray-100 dark:hover:bg-gray-700"
+      >
+        <span class="sr-only">Prev Page</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3 w-3"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+    </li>
+
+    <li *ngFor="let i of range(Math.max(page.number-5,0),Math.min(page.number+6,page.totalPages))">
+
+      <a *ngIf="page.number===i"
+         class="select-none cursor-pointer block h-8 w-8 rounded bg-gray-300  text-center leading-8 dark:bg-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 active:shadow-inner">
+        {{i}}
+      </a>
+
+      <a *ngIf="page.number!==i" (click)="updatePage(i)"
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 dark:text-gray-100 dark:hover:bg-gray-700 active:shadow-inner">
+        {{i}}
+      </a>
+    </li>
+
+    <li>
+      <a *ngIf="page.number!==page.totalPages-1"
+         (click)="updatePage(page.number+1)"
+         class="select-none cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded text-gray-900 hover:bg-gray-200 active:shadow-inner dark:text-gray-100 dark:hover:bg-gray-700"
+      >
+        <span class="sr-only">Next Page</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3 w-3"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+    </li>
+  </ol>
+</div>

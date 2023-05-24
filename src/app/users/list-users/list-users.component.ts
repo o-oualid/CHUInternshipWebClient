@@ -39,4 +39,5 @@ export class ListUsersComponent implements OnInit {
     this.usersService.getUsers(0, column, this.asc).subscribe(res => this.page = res)
 
   }
+
 }

@@ -19,29 +19,32 @@ import { AccountSecurityComponent } from './account/security/account-security.co
 import { JoinComponent } from './join/join.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    NotFoundComponent,
-    HeaderComponent,
-    FooterComponent,
-    SidebarComponent,
-    BaseComponent,
-    AccountDetailsComponent,
-    AccountSecurityComponent,
-    JoinComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgOptimizedImage,
-    AppRoutingModule,
-    RouterModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        NotFoundComponent,
+        HeaderComponent,
+        FooterComponent,
+        SidebarComponent,
+        BaseComponent,
+        AccountDetailsComponent,
+        AccountSecurityComponent,
+        JoinComponent,
+    ],
+    imports: [
+        BrowserModule,
+        NgOptimizedImage,
+        AppRoutingModule,
+        RouterModule,
+        ReactiveFormsModule,
+        HttpClientModule
 
-  ],
-  providers: [SetupService],
-  bootstrap: [AppComponent]
+    ],
+    providers: [SetupService],
+    exports: [
+
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
