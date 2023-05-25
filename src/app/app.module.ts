@@ -17,6 +17,7 @@ import {SetupService} from "./setup/setup.service";
 import { AccountDetailsComponent } from './account/details/account-details.component';
 import { AccountSecurityComponent } from './account/security/account-security.component';
 import { JoinComponent } from './join/join.component';
+import {ImagesModule} from "./images/images.module";
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { JoinComponent } from './join/join.component';
         AppRoutingModule,
         RouterModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        ImagesModule
 
     ],
     providers: [SetupService],

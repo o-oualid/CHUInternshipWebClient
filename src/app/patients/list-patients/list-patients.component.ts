@@ -12,7 +12,6 @@ import {range} from "../../utils/Range";
 export class ListPatientsComponent implements OnInit {
 
   page: Page<Patient> = {} as Page<Patient>;
-
   sortBy: string = 'id';
   asc: boolean = true;
 

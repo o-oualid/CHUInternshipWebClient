@@ -27,6 +27,11 @@ export class PatientsService {
 
   getPatient(id: string) {
     const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
-    return this.http.get<Patient>(`${environment.apiEndPoint}/patients/${id}`,{headers})
+    return this.http.get<Patient>(`${environment.apiEndPoint}/patients/${id}`,{headers:headers, observe:'response'})
+  }
+
+  update(patient: Patient) {
+    const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token"),};
+    return this.http.put<Patient>(environment.apiEndPoint + '/patients', patient, {headers:headers, observe:'response'});
   }
 }

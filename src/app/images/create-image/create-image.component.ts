@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ImagesService} from "../../services/images.service";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ImageCreation} from "../../models/imageCreation";
+import {Patient} from "../../models/Patient";
 
 @Component({
   selector: 'app-create-image',
@@ -10,27 +11,35 @@ import {ImageCreation} from "../../models/imageCreation";
 })
 export class CreateImageComponent {
 
+  @Input() patient: Patient | null = null;
 
   constructor(private imagesService: ImagesService, private formBuilder: FormBuilder) {
   }
-  file:File={} as File;
+
+  file: File = {} as File;
   image: ImageCreation = {} as ImageCreation;
   form = this.formBuilder.group({
     image: ['', Validators.compose([Validators.required])],
     rightEye: ['', Validators.compose([Validators.required])],
     classification: ['', Validators.compose([Validators.required])],
     dateTaken: [this.image.dateTaken, Validators.compose([Validators.required])],
-    notes: ['', Validators.compose([Validators.required])],
+    notes: [''],
   });
 
 
   submit() {
     if (this.form.invalid) return;
+    this.form.disable()
     this.image.rightEye = this.form.get('rightEye')?.getRawValue();
-    this.image.classificationId = this.form.get('classification')?.getRawValue();
+    this.image.classification = this.form.get('classification')?.getRawValue();
     this.image.dateTaken = this.form.get('dateTaken')?.getRawValue();
     this.image.notes = this.form.get('notes')?.getRawValue();
-    this.imagesService.createImage(this.image,this.file).subscribe(res=>console.log(res));
+    if (this.patient !== null)
+      this.image.patientId = this.patient.id;
+    this.imagesService.createImage(this.image, this.file).subscribe(res => {
+        this.form.enable()
+      }
+    );
   }
 
   public onFileChanged(event: any) {

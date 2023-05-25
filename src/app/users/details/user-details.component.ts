@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../../models/User";
 import {UsersService} from "../../services/users.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {mergeMap} from "rxjs";
 
 @Component({
@@ -54,14 +54,19 @@ export class UserDetailsComponent implements OnInit {
     this.route.paramMap.pipe(mergeMap(params => {
       this.user.id = params.get('id') ?? '';
       return this.usersService.getUser(this.user.id)
-    })).subscribe(res => {
-      this.user = res;
-      this.form.controls['firstName'].patchValue(this.user.firstName)
-      this.form.controls['lastName'].patchValue(this.user.lastName)
-      this.form.controls['email'].patchValue(this.user.email)
-      this.form.controls['role'].patchValue(this.user.role)
-      this.form.controls['joinedAt'].patchValue(this.user.joinedAt)
-      this.form.controls['active'].patchValue(this.user.active)
-    }, error => this.router.navigateByUrl('/notFound'));
+    })).subscribe((res) => {
+        if (res.status !== 200 || res.body === null) {
+          this.router.navigateByUrl('/notFound');
+        } else {
+          this.user = res.body;
+          this.form.controls['firstName'].patchValue(this.user.firstName);
+          this.form.controls['lastName'].patchValue(this.user.lastName);
+          this.form.controls['email'].patchValue(this.user.email);
+          this.form.controls['role'].patchValue(this.user.role);
+          this.form.controls['joinedAt'].patchValue(this.user.joinedAt);
+          this.form.controls['active'].patchValue(this.user.active);
+        }
+      }
+    );
   }
 }

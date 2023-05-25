@@ -1,1 +1,19 @@
-<p>image-details works!</p>
+<div *ngIf="image.picturePath.length!==0">
+  <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+       class="float-left w-64 h-64 object-cover rounded-lg mr-4">
+  <ul>
+    <li>Classification: {{image.classification}}</li>
+    <li>Date Taken: {{image.dateTaken}}</li>
+    <li>Eye: {{image.rightEye ? 'Left eye' : 'Right eye'}}</li>
+    <li>Notes: {{image.notes}}</li>
+    <li *ngIf="image.patient===null">Patient: Uknown</li>
+    <li *ngIf="image.patient!==null">Patient:
+      <a class="text-blue-600"
+         routerLink="/patients/{{image.patient.id}}">{{image.patient.firstName + ' ' + image.patient.lastName}}</a>
+    </li>    <li *ngIf="image.user===null">User: Uknown</li>
+    <li *ngIf="image.user!==null">User:
+      <a class="text-blue-600"
+         routerLink="/users/{{image.user.id}}">{{image.user.firstName + ' ' + image.user.lastName}}</a>
+    </li>
+  </ul>
+</div>

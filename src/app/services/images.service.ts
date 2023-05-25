@@ -4,6 +4,7 @@ import {ImageCreation} from "../models/imageCreation";
 import {environment} from "../../environments/environment";
 import {Image} from "../models/Image";
 import {Page} from "../utils/Page";
+import {ImageDetails} from "../models/ImageDetails";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,10 @@ export class ImagesService {
   getImages(page = 0, sort = "id", asc: boolean = true, size = 20) {
     const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
     return this.http.get<Page<Image>>(`${environment.apiEndPoint}/images?size=${size}&page=${page}&sort=${sort},${asc ? 'asc' : 'desc'}`, {headers});
+  }
+
+  getImageDetails(id: string) {
+    const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
+    return this.http.get<ImageDetails>(`${environment.apiEndPoint}/images/details/${id}`, {headers: headers, observe: 'response'});
   }
 }

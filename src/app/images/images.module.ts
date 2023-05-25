@@ -10,17 +10,21 @@ import {AuthenticatePipe} from "../utils/authenticate.pipe";
 
 
 @NgModule({
-  declarations: [
-    ListImagesComponent,
-    CreateImageComponent,
+    declarations: [
+        ListImagesComponent,
+        CreateImageComponent,
+        ImageDetailsComponent,
+        AuthenticatePipe
+    ],
+  exports: [
     ImageDetailsComponent,
-    AuthenticatePipe
+    CreateImageComponent
   ],
-  imports: [
-    CommonModule,
-    ImagesRoutingModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-  ]
+    imports: [
+        CommonModule,
+        ImagesRoutingModule,
+        ReactiveFormsModule,
+        NgOptimizedImage,
+    ]
 })
 export class ImagesModule { }

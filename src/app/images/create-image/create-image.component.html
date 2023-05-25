@@ -34,7 +34,12 @@
       formControlName="classification"
     >
       <option value="" selected disabled>--SELECT CLASSIFICATION--</option>
-      <option value="1" >Unknown</option>
+      <option value="UNKNOWN">Unknown</option>
+      <option value="NONE">None</option>
+      <option value="CLASS_1">Class 1</option>
+      <option value="CLASS_2">Class 2</option>
+      <option value="CLASS_3">Class 3</option>
+      <option value="CLASS_4">Class 4</option>
     </select>
   </div>
   <div class="block mt-4 w-64">
@@ -87,7 +92,7 @@
     />
   </div>
   <div class="block mt-4 w-64">
-    <input type="submit" [disabled]="form.invalid"
+    <input type="submit" [disabled]="form.invalid||form.disabled"
            class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none enabled:focus:ring active:text-blue-500 enabled:dark:hover:bg-blue-700 enabled:dark:hover:text-white"
            value="Upload"
     />

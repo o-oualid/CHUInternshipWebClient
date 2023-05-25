@@ -6,6 +6,7 @@ import { ListPatientsComponent } from './list-patients/list-patients.component';
 import { CreatePatientComponent } from './create-patient/create-patient.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {ImagesModule} from "../images/images.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     PatientRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImagesModule
   ]
 })
 export class PatientsModule { }

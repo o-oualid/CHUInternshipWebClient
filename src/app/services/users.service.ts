@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Page} from "../utils/Page";
 import {User} from "../models/User";
@@ -35,6 +35,7 @@ export class UsersService {
     const headers: { Authorization: string } = {
       'Authorization': 'Bearer ' + localStorage.getItem("token")
     };
-    return this.http.get<User>(environment.apiEndPoint + `/users/${id}`, {headers});
+    return this.http.get<User>(environment.apiEndPoint + `/users/${id}`,
+      {headers: headers, observe: 'response'});
   }
 }
