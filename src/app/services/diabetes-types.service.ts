@@ -9,8 +9,9 @@ import {DiabetesTypes} from "../models/DiabetesTypes";
 export class DiabetesTypesService {
   constructor(private httpClient: HttpClient) {
   }
+
   getDiabetesTypes() {
     const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
-    return this.httpClient.get<DiabetesTypes[]>(environment.apiEndPoint + '/diabetes-types', {headers});
+    return this.httpClient.get<DiabetesTypes[]>(environment.apiEndPoint + '/diabetes-types', {headers: headers});
   }
 }

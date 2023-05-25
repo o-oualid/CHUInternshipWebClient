@@ -4,7 +4,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../models/User";
 import {UsersService} from "../services/users.service";
 import {AuthService} from "../services/auth.service";
-import {flatMap, mergeMap} from "rxjs";
+import {mergeMap} from "rxjs";
 
 @Component({
   selector: 'app-invite',
@@ -31,7 +31,14 @@ export class JoinComponent implements OnInit {
     this.route.paramMap.pipe(mergeMap(params => {
       this.code = params.get('code') ?? '';
       return this.usersService.getInvitedUser(this.code)
-    })).subscribe(res => this.user = res, error => this.router.navigateByUrl('/notFound'));
+    })).subscribe(
+      res => {
+        if (res.status === 200 && res.body != null)
+          this.user = res.body
+        else
+          this.router.navigateByUrl('/notFound')
+      }
+    );
   }
 
   submit() {

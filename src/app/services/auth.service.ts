@@ -15,16 +15,18 @@ export class AuthService {
   }
 
   login(loginInfo: LoginInfo) {
-    return this.http.post<AuthDetails>(environment.apiEndPoint + "/login", loginInfo).subscribe(res => {
-        this.authStorage.store(res);
+    return this.http.post<AuthDetails>(environment.apiEndPoint + "/login", loginInfo, {observe: 'response'}).subscribe(res => {
+        if (res.body !== null)
+          this.authStorage.store(res.body);
         this.router.navigateByUrl("/")
       }
     );
   }
 
   join(userJoin: UserJoin) {
-    return this.http.post<AuthDetails>(environment.apiEndPoint + "/join", userJoin).subscribe(res => {
-        this.authStorage.store(res);
+    return this.http.post<AuthDetails>(environment.apiEndPoint + "/join", userJoin, {observe: 'response'}).subscribe(res => {
+        if (res.body !== null)
+          this.authStorage.store(res.body);
         this.router.navigateByUrl("/")
       }
     );

@@ -19,13 +19,17 @@ export class ListPatientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.patientService.getPatients().subscribe(res => this.page = res)
+    this.patientService.getPatients().subscribe(res => {
+      if (res.body != null) this.page = res.body
+    })
   }
 
   protected readonly Math = Math;
 
   updatePage(pageNumber: number) {
-    this.patientService.getPatients(pageNumber, this.sortBy, this.asc).subscribe(res => this.page = res)
+    this.patientService.getPatients(pageNumber, this.sortBy, this.asc).subscribe(res => {
+      if (res.body != null) this.page = res.body
+    })
 
   }
 
@@ -35,7 +39,9 @@ export class ListPatientsComponent implements OnInit {
     if (column == this.sortBy) this.asc = !this.asc;
     else this.asc = true;
     this.sortBy = column;
-    this.patientService.getPatients(0, column, this.asc).subscribe(res => this.page = res)
+    this.patientService.getPatients(0, column, this.asc).subscribe(res => {
+      if (res.body != null) this.page = res.body
+    })
 
   }
 
