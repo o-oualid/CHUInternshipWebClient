@@ -13,6 +13,7 @@ import {ImageDetails} from "../../models/ImageDetails";
 })
 export class ImageDetailsComponent implements OnInit{
 
+  filter :string='';
   constructor(private formBuilder: FormBuilder,
               private imagesService: ImagesService,
               private router: Router,
@@ -47,4 +48,8 @@ export class ImageDetailsComponent implements OnInit{
 
 
   protected readonly environment = environment;
+
+  setFilter(filter: string) {
+    this.filter=filter;
+  }
 }

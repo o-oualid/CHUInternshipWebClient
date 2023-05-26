@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Patient} from "../models/Patient";
 import {Page} from "../utils/Page";
+import {PatientDetails} from "../models/PatientDetails";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class PatientsService {
 
   getPatient(id: string) {
     const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
-    return this.http.get<Patient>(`${environment.apiEndPoint}/patients/${id}`,{headers:headers, observe:'response'})
+    return this.http.get<PatientDetails>(`${environment.apiEndPoint}/patients/${id}`,{headers:headers, observe:'response'})
   }
 
   update(patient: Patient) {

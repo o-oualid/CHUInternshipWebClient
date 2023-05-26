@@ -1,6 +1,21 @@
 <div *ngIf="image.picturePath.length!==0">
+  <div class="flex flex-col float-left gap-2">
+    <img  (click)="setFilter('')" [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+
+    <img (click)="setFilter('sepia')" [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="sepia  cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+    <img (click)="setFilter('grayscale')" [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="grayscale cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+    <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+    <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+    <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
+         class="cursor-pointer w-12 h-12 object-center rounded-lg mr-4 shadow">
+  </div>
   <img [src]="environment.apiEndPoint+'/images/'+image.picturePath | authenticate" alt="image"
-       class="float-left w-64 h-64 object-cover rounded-lg mr-4">
+       class="{{filter}} float-left w-96 rounded-lg mr-4 shadow">
   <ul>
     <li>Classification: {{image.classification}}</li>
     <li>Date Taken: {{image.dateTaken}}</li>
