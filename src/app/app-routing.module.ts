@@ -35,11 +35,16 @@ const routes: Routes = [
           loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule),
           pathMatch: 'prefix'
         },
+        {
+          path: 'consultations',
+          loadChildren: () => import('./consultations/consultations.module').then(m => m.ConsultationsModule),
+          pathMatch: 'prefix'
+        },
         {path: 'account/details', component: AccountDetailsComponent, pathMatch: 'full'},
         {path: 'account/security', component: AccountSecurityComponent, pathMatch: 'full'},
         {
           path: '',
-          redirectTo: 'users',
+          redirectTo: 'consultations',
           pathMatch: 'full'
         }
       ]

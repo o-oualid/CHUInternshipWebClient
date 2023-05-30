@@ -1,6 +1,7 @@
 <div>
   <div class="flex justify-end min-w-max m-2">
-    <a class="rounded-md bg-blue-600 text-white px-4 py-2 text-sm hover:shadow-inner" routerLink="/patients/create">Add Patient</a>
+    <a class="rounded-md bg-blue-600 text-white px-4 py-2 text-sm hover:shadow-inner" routerLink="/patients/create">Add
+      Patient</a>
   </div>
   <table
     class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900 rounded-lg"
@@ -120,7 +121,7 @@
     </tbody>
   </table>
 
-  <ol class="flex justify-center gap-1 text-xs font-medium mt-8">
+  <ol *ngIf="page.totalPages!==1" class="flex justify-center gap-1 text-xs font-medium mt-8">
     <li>
       <a *ngIf="page.number!==0"
          (click)="updatePage(page.number-1)"

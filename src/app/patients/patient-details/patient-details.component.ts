@@ -10,7 +10,10 @@ import {PatientDetails} from "../../models/PatientDetails";
 import Konva from "konva";
 import {WhiteBoard} from "./whiteboard/whiteboard";
 import {WINDOW} from '@ng-web-apis/common';
+import {Filter} from "konva/lib/Node";
 import Image = Konva.Image;
+import Filters = Konva.Filters;
+
 
 @Component({
   selector: 'app-patient-details',
@@ -25,6 +28,31 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
   public diabetesTypes: DiabetesTypes[] = [];
   regions: Region[] = [];
   private image: Image = {} as Image;
+
+  LogData: Filter = (imageData: ImageData) => {
+    console.log("loggin data");
+   for (let x = 0; x < imageData.data.length; x++) {
+      if (imageData.data[x] < 0 || imageData.data[x] > 255)
+        console.log(imageData.data[x]);
+    }
+  }
+
+  colorFilter = (imageData: ImageData, colorIndex: number) => {
+    for (let x = colorIndex; x < imageData.data.length; x += 4) {
+      imageData.data[x] = 0;
+    }
+  }
+
+  RedFilter: Filter = (imageData: ImageData) => {
+    this.colorFilter(imageData, 0)
+  }
+  GreenFilter: Filter = (imageData: ImageData) => {
+    this.colorFilter(imageData, 1)
+  }
+  BlueFilter: Filter = (imageData: ImageData) => {
+    this.colorFilter(imageData, 2)
+  }
+
 
   constructor(@Inject(WINDOW) private windowRef: Window,
               private router: Router,
@@ -64,23 +92,40 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
     });
 
 
-    Konva.Image.fromURL('/assets/test.jpg', (image) => {
-      image.setAttrs({x: 0, y: 0, scaleX: 1, scale: 1});
+    Konva.Image.fromURL('/assets/test.jpeg', (image) => {
+      image.setAttrs({x: 0, y: 0, scale: 1});
       image.cache();
-      image.filters([Konva.Filters.Brighten]);
+      image.filters([Konva.Filters.Brighten, this.LogData]);
       this.image = image;
       this.whiteBoard.mainLayer.add(image);
     });
   }
 
-  brightnessChanged($event: Event) {
-    if (event === undefined) return;
+  brightnessChanged(event: Event) {
     this.image.brightness(Number((event.target as HTMLInputElement).value));
-    console.log((event.target as HTMLInputElement).value);
   }
 
-  grayScale($event: Event) {
-    if (event === undefined) return;
-    console.log((event.target as HTMLInputElement).value);
+  grayScale(event: Event) {
+    const element = event.target as HTMLInputElement;
+    if (element.checked) {
+      this.image.filters().push(Filters.Grayscale)
+      this.image.filters(this.image.filters());
+    } else {
+      this.image.filters(this.image.filters().filter(filter => filter !== Filters.Grayscale));
+    }
   }
+
+
+  toggleFilter(event: Event, filter: Filter) {
+    const element = event.target as HTMLInputElement;
+    if (this.image.filters().find(x => x === filter) !== undefined) {
+      this.image.filters(this.image.filters().filter(x => x !== filter));
+    } else {
+      this.image.filters().push(filter)
+      this.image.filters(this.image.filters());
+    }
+  }
+
+  protected readonly Filters = Filters;
 }
+

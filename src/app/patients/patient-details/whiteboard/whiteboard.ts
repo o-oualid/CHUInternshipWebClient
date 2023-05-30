@@ -25,21 +25,21 @@ export class WhiteBoard {
       const position = e.currentTarget.position();
     });
 
-    var scaleBy = 1.01;
+    const scaleBy = 1.01;
     this.stage.on('wheel', (e) => {
 
       e.evt.preventDefault();
 
-      var oldScale = this.stage.scaleX() ?? 0;
-      var pointer = this.stage.getPointerPosition();
+      const oldScale = this.stage.scaleX() ?? 0;
+      const pointer = this.stage.getPointerPosition();
       if (!pointer) return;
-      var mousePointTo = {
+      const mousePointTo = {
         x: (pointer.x - this.stage.x()) / oldScale,
         y: (pointer.y - this.stage.y()) / oldScale,
       };
 
       // how to scale? Zoom in? Or zoom out?
-      let direction = e.evt.deltaY > 0 ? 1 : -1;
+      let direction = e.evt.deltaY > 0 ? -1 : 1;
 
       // when we zoom on trackpad, e.evt.ctrlKey is true
       // in that case lets revert direction
@@ -47,11 +47,11 @@ export class WhiteBoard {
         direction = -direction;
       }
 
-      var newScale = direction > 0 ? oldScale * scaleBy : oldScale / scaleBy;
+      const newScale = direction > 0 ? oldScale * scaleBy : oldScale / scaleBy;
 
       this.stage.scale({x: newScale, y: newScale});
 
-      var newPos = {
+      const newPos = {
         x: pointer.x - mousePointTo.x * newScale,
         y: pointer.y - mousePointTo.y * newScale,
       };
