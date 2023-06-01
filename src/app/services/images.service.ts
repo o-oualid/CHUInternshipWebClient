@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ImageCreation} from "../models/imageCreation";
 import {environment} from "../../environments/environment";
 import {Image} from "../models/Image";
 import {Page} from "../utils/Page";
 import {ImageDetails} from "../models/ImageDetails";
+import {ImageCreation} from "../models/ImageCreation";
 
 @Injectable({
   providedIn: 'root'

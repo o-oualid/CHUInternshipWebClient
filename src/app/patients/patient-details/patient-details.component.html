@@ -1,31 +1,44 @@
-<div class="max-w-xl lg:max-w-3xl">
-  <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
-    Folder Details
-  </h1>
-  <div class="mt-6">
-    <div class="inline-block bg-gray-200 dark:bg-gray-800 rounded-md w-min px-6 py-4">
-      <h1 class="whitespace-nowrap text-xl">{{patient.firstName}} {{patient.lastName}}</h1>
-      <h1 class="whitespace-nowrap">{{patient.cin}}</h1>
+<div class="">
+  <div class="items-start ">
+    <div class="inline-block align-top mr-2">
+      <div class="py-2 mt-2 flex">
+        <a class="rounded-md bg-blue-600 text-white px-4 py-2 ml-2 text-sm flex active:shadow-inner shadow"
+           routerLink="/consultations/create/{{patient.id}}">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5 mr-2" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+          New Consultation
+        </a>
+      </div>
+      <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-2 mt-2">
+        <h1 class="whitespace-nowrap text-xl">{{patient.firstName}} {{patient.lastName}}</h1>
+        <h1 class="whitespace-nowrap">{{patient.cin}}</h1>
+        <h1 class="whitespace-nowrap">Birth Date {{patient.birthDate}}</h1>
+        <h1 class="whitespace-nowrap">Region {{region}}</h1>
+        <h1 class="whitespace-nowrap">Diabetes type {{diabetesType}}</h1>
+        <h1 class="whitespace-nowrap">Discovery Date {{patient.discoveryDate}}</h1>
+
+      </div>
+      <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-4 mt-2">
+        <h1 class="whitespace-nowrap text-xl">Image Filters</h1>
+        <form>
+          Brightness
+          <input type="range" value="0" step="0.01" min="-1" max="1" (input)="brightnessChanged($event)"><br>
+          Gray scale
+          <input type="checkbox" class="bg-gray-300 border-gray-300 text-gray-500 w-8 h-8"
+                 (input)="toggleFilter($event,Filters.Grayscale)"><br>
+          Colors
+          <input type="checkbox" class="bg-red-300 border-red-300 text-red-500 w-8 h-8" checked="checked"
+                 (input)="toggleFilter($event,RedFilter)">
+          <input type="checkbox" class="bg-green-300 border-green-300 text-green-500 w-8 h-8" checked="checked"
+                 (input)="toggleFilter($event,GreenFilter)">
+          <input type="checkbox" class="bg-blue-300 border-blue-300 text-blue-500 w-8 h-8" checked="checked"
+                 (input)="toggleFilter($event,BlueFilter)"><br>
+        </form>
+      </div>
     </div>
-    <div class="float-right">
-      <form>
-        Brightness
-        <input type="range" value="0" step="0.01" min="-1" max="1" (input)="brightnessChanged($event)"><br>
-        Gray scale
-        <input type="checkbox" class="bg-gray-300 border-gray-300 text-gray-500 w-8 h-8"
-               (input)="toggleFilter($event,Filters.Grayscale)"><br>
-        Colors
-        <input type="checkbox" class="bg-red-300 border-red-300 text-red-500 w-8 h-8" checked="checked"
-               (input)="toggleFilter($event,RedFilter)">
-        <input type="checkbox" class="bg-green-300 border-green-300 text-green-500 w-8 h-8" checked="checked"
-               (input)="toggleFilter($event,GreenFilter)">
-        <input type="checkbox" class="bg-blue-300 border-blue-300 text-blue-500 w-8 h-8" checked="checked"
-               (input)="toggleFilter($event,BlueFilter)"><br>
-        Debug
-        <input type="checkbox" class="bg-gray-300 border-gray-300 text-gray-500 w-8 h-8"
-               (input)="toggleFilter($event,LogData)"><br>
-      </form>
-      <div id='canvas'></div>
-    </div>
+    <div id='canvas' class="border-2 p-0 inline-block align-top"></div>
   </div>
 </div>

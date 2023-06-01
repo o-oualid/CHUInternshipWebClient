@@ -6,7 +6,7 @@ import {AuthDetails} from "../models/AuthDetails";
 import {ServerState} from "../models/ServerState";
 import {authStorageService} from "../services/auth-storage.service";
 import {Router} from "@angular/router";
-import {of} from 'rxjs';
+import {map, of} from 'rxjs';
 
 
 @Injectable({
@@ -22,7 +22,10 @@ export class SetupService {
   getServerState() {
     if (this.isSetup !== null)
       return of(new ServerState(this.isSetup));
-    return this.http.get<ServerState>(environment.apiEndPoint + "/server/state")
+    return this.http.get<ServerState>(environment.apiEndPoint + "/server/state").pipe(map(state => {
+      this.isSetup = state.setup;
+      return state;
+    }));
   }
 
   setupServer(setupDetails: SetupDetails) {

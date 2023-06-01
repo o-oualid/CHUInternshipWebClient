@@ -15,19 +15,21 @@ export class ListPatientsComponent implements OnInit {
   sortBy: string = 'id';
   asc: boolean = true;
 
+  date: Date = new Date();
+
   constructor(private patientService: PatientsService) {
   }
 
   ngOnInit(): void {
-    this.patientService.getPatients().subscribe(res => {
+    this.patientService.getPatientsWithAConsultationOnDate(this.date).subscribe(res => {
       if (res.body != null) this.page = res.body
-    })
+    });
   }
 
   protected readonly Math = Math;
 
   updatePage(pageNumber: number) {
-    this.patientService.getPatients(pageNumber, this.sortBy, this.asc).subscribe(res => {
+    this.patientService.getPatientsWithAConsultationOnDate(this.date, pageNumber, this.sortBy, this.asc).subscribe(res => {
       if (res.body != null) this.page = res.body
     })
 
@@ -39,10 +41,27 @@ export class ListPatientsComponent implements OnInit {
     if (column == this.sortBy) this.asc = !this.asc;
     else this.asc = true;
     this.sortBy = column;
-    this.patientService.getPatients(0, column, this.asc).subscribe(res => {
+    this.patientService.getPatientsWithAConsultationOnDate(this.date, 0, column, this.asc).subscribe(res => {
       if (res.body != null) this.page = res.body
     })
 
   }
 
+  dateChanged(event: Event) {
+    this.date = new Date((event.target as HTMLInputElement).value);
+    this.patientService.getPatientsWithAConsultationOnDate(this.date).subscribe(res => {
+      if (res.body != null) this.page = res.body
+    });
+  }
+
+  protected readonly Date = Date;
+  searchTerm: string = "";
+
+
+  search() {
+    if (this.searchTerm.trim().length < 3) return;
+    this.patientService.findPatientsByName(this.searchTerm).subscribe(res => {
+      if (res.body != null) this.page = res.body
+    });
+  }
 }

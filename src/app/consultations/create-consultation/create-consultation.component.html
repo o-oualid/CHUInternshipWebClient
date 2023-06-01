@@ -1,1 +1,69 @@
-<p>create-consultation works!</p>
+<div class="max-w-xl lg:max-w-3xl">
+  <h1
+    class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl"
+  >
+    New Consultation
+  </h1>
+
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-8 gap-6">
+
+    <div class="block col-span-4 sm:col-span-4">
+      <label
+        for="patient"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Patient
+      </label>
+
+      <input
+        type="text"
+        id="patient"
+        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="patient"
+      />
+    </div>
+
+    <div class="block col-span-4 sm:col-span-4">
+      <label
+        for="consultationDate"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Consultation Date
+      </label>
+
+      <input
+        type="date"
+        id="consultationDate"
+        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="consultationDate"
+
+      />
+    </div>
+
+    <div class="block col-span-8 sm:col-span-8">
+      <label
+        for="notes"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Notes
+      </label>
+
+      <textarea
+        type="text"
+        id="notes"
+        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="notes"
+      ></textarea>
+    </div>
+
+
+    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+      <input type="submit" [disabled]="form.invalid"
+             class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
+             value="Submit"
+      />
+
+    </div>
+  </form>
+</div>

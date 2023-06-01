@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CreateConsultationComponent} from "./create-consultation/create-consultation.component";
 
 const routes: Routes = [
-  {path: '', component: CreateConsultationComponent}
+  {path: 'create/:id', component: CreateConsultationComponent},
 ];
 
 @NgModule({

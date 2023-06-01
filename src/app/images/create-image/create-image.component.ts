@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ImagesService} from "../../services/images.service";
 import {FormBuilder, Validators} from "@angular/forms";
-import {ImageCreation} from "../../models/imageCreation";
+import {ImageCreation} from "../../models/ImageCreation";
 import {Patient} from "../../models/Patient";
 
 @Component({

@@ -14,7 +14,6 @@ import {Filter} from "konva/lib/Node";
 import Image = Konva.Image;
 import Filters = Konva.Filters;
 
-
 @Component({
   selector: 'app-patient-details',
   templateUrl: './patient-details.component.html',
@@ -23,19 +22,13 @@ import Filters = Konva.Filters;
 export class PatientDetailsComponent implements OnInit, AfterViewInit {
 
   whiteBoard!: WhiteBoard;
-
+  diabetesType: string = "";
+  region: string = "";
   patient: PatientDetails = {} as PatientDetails;
   public diabetesTypes: DiabetesTypes[] = [];
   regions: Region[] = [];
   private image: Image = {} as Image;
 
-  LogData: Filter = (imageData: ImageData) => {
-    console.log("loggin data");
-   for (let x = 0; x < imageData.data.length; x++) {
-      if (imageData.data[x] < 0 || imageData.data[x] > 255)
-        console.log(imageData.data[x]);
-    }
-  }
 
   colorFilter = (imageData: ImageData, colorIndex: number) => {
     for (let x = colorIndex; x < imageData.data.length; x += 4) {
@@ -63,39 +56,43 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
-
-  }
-
-  ngAfterViewInit() {
-    const canvas = this.windowRef.document.getElementById('canvas');
-    const rect = canvas!.getBoundingClientRect();
-
-    const width = 400;
-    const height = 400;
-    this.whiteBoard = new WhiteBoard();
-    this.whiteBoard.initStage(width, height, 'canvas');
-    this.whiteBoard.initMainLayer();
-    this.regionService.gerRegions().subscribe(res => this.regions = res);
-    this.diabetesTypeService.getDiabetesTypes().subscribe(res => this.diabetesTypes = res);
-
     this.route.paramMap.pipe(mergeMap(params => {
       this.patient.id = params.get('id') ?? '';
       return this.patientService.getPatient(this.patient.id)
     })).subscribe(res => {
       if (res.body === null) {
         this.router.navigateByUrl('/notFound');
-
       } else {
         this.patient = res.body;
+
+        //FIXME: memory leak
+        this.regionService.getRegions().subscribe(res => {
+          this.region = res.find((reg, num, list) => reg.id === this.patient.regionId)?.name ?? "";
+        });
+
+        this.diabetesTypeService.getDiabetesTypes().subscribe(res => {
+          this.diabetesType = res.find((reg, num, list) => reg.id === this.patient.diabetesTypeId)?.name ?? "";
+        });
+        // end of memory leak
       }
     });
+  }
 
+  ngAfterViewInit() {
+    const canvas = this.windowRef.document.getElementById('canvas');
+    const rect = canvas!.getBoundingClientRect();
+
+    const width = 600;
+    const height = 600;
+    this.whiteBoard = new WhiteBoard();
+    this.whiteBoard.initStage(width, height, 'canvas');
+    this.whiteBoard.initMainLayer();
 
     Konva.Image.fromURL('/assets/test.jpeg', (image) => {
-      image.setAttrs({x: 0, y: 0, scale: 1});
+      const scale = width / image.getWidth();
+      image.setAttrs({x: 0, y: 0, scale: {x: scale, y: scale}});
       image.cache();
-      image.filters([Konva.Filters.Brighten, this.LogData]);
+      image.filters([Konva.Filters.Brighten]);
       this.image = image;
       this.whiteBoard.mainLayer.add(image);
     });
@@ -127,5 +124,6 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
   }
 
   protected readonly Filters = Filters;
+
 }
 

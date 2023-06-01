@@ -1,99 +1,6 @@
-<div
-  class="select-none fixed top-0 flex max-h-screen min-h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
-    <span
-      class="px-4 pt-2 bg-gradient-to-r from-violet-500 to-blue-500 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-      Retina
-    </span>
-
+<div class="select-none fixed top-0 flex max-h-screen min-h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
+    <img ngSrc="assets/logo.png" class="px-4 pt-2" height="224" width="418" alt="">
   <nav aria-label="Main Nav" class="px-4 mt-6 flex flex-grow flex-col space-y-1 overflow-auto">
-    <a
-      href="#"
-      class="hidden flex items-center gap-2 rounded-lg px-4 py-2  {{router.url==='/general' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
-
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5 opacity-75"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-        />
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </svg>
-
-      <span class="text-sm font-medium"> General </span>
-    </a>
-
-    <details class="group [&_summary::-webkit-details-marker]:hidden">
-      <summary
-        class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/consultations') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
-      >
-        <div class="flex items-center gap-2 ">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
-               class="h-5 w-5 opacity-75"
-               fill="none"
-               viewBox="0 0 24 24"
-               stroke="currentColor"
-               stroke-width="2">
-            <path
-              d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
-          </svg>
-          <span class="select-none text-sm font-medium"> Folders </span>
-        </div>
-
-        <span class="shrink-0 transition duration-300 group-open:-rotate-180">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </span>
-      </summary>
-
-      <nav aria-label="Images Nav" class="mt-2 flex flex-col px-4">
-        <a [routerLink]="['/consultations']"
-           class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/consultations' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
-
-          <span class="text-sm font-medium"> Patients List </span>
-        </a>
-
-        <a
-          [routerLink]="['/consultations/create']"
-          class="{{router.url==='/consultations/create' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
-            <path
-              d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-            <path fill-rule="evenodd"
-                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-          </svg>
-
-          <span class="text-sm font-medium"> Add Patient </span>
-        </a>
-      </nav>
-    </details>
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
         class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/patients') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
@@ -114,7 +21,7 @@
             />
           </svg>
 
-          <span class="select-none text-sm font-medium"> Folders </span>
+          <span class="select-none text-sm font-medium"> Consultations </span>
         </div>
 
         <span class="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -142,7 +49,7 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
 
-          <span class="text-sm font-medium"> Patients List </span>
+          <span class="text-sm font-medium"> List </span>
         </a>
 
         <a
@@ -156,29 +63,32 @@
                   d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
           </svg>
 
-          <span class="text-sm font-medium"> Add Patient </span>
+          <span class="text-sm font-medium"> New Patient </span>
         </a>
       </nav>
     </details>
 
-
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
-        class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/images') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} "
+        class="{{router.url.startsWith('/e-learning') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}  flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
       >
         <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg"
-               class="h-5 w-5 opacity-75"
-               fill="currentColor"
-               viewBox="0 0 24 24"
-               stroke="currentColor"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 opacity-75"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
           >
-            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
             <path
-              d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            />
           </svg>
 
-          <span class="select-none text-sm font-medium"> Images </span>
+          <span class="select-none text-sm font-medium">E-Learning</span>
         </div>
 
         <span class="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -197,9 +107,10 @@
           </span>
       </summary>
 
-      <nav aria-label="Images Nav" class="mt-2 flex flex-col px-4">
-        <a [routerLink]="['/images']"
-           class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/images' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
+      <nav aria-label="Teams Nav" class="mt-2 flex flex-col px-4">
+        <a
+          [routerLink]="['/e-learning']"
+          class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/users' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -210,8 +121,8 @@
         </a>
 
         <a
-          [routerLink]="['/images/create']"
-          class="{{router.url==='/images/create' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          [routerLink]="['/users/add']"
+          class="{{router.url==='/users/add' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
             <path
@@ -220,10 +131,12 @@
                   d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
           </svg>
 
-          <span class="text-sm font-medium"> Create </span>
+          <span class="text-sm font-medium"> Invite </span>
         </a>
       </nav>
     </details>
+
+
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
         class="{{router.url.startsWith('/users') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}  flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
@@ -244,7 +157,7 @@
             />
           </svg>
 
-          <span class="select-none text-sm font-medium"> Users </span>
+          <span class="select-none text-sm font-medium">Admin </span>
         </div>
 
         <span class="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -291,6 +204,7 @@
         </a>
       </nav>
     </details>
+
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
         class="{{router.url.startsWith('/account') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700  dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
@@ -307,11 +221,16 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
 
-          <span class="select-none text-sm font-medium"> Account </span>
+          <span class="select-none text-sm font-medium"> Settings </span>
         </div>
 
         <span class="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -350,7 +269,7 @@
             />
           </svg>
 
-          <span class="text-sm font-medium"> Details </span>
+          <span class="text-sm font-medium">Account Details </span>
         </a>
 
         <a
@@ -373,8 +292,9 @@
             />
           </svg>
 
-          <span class="text-sm font-medium"> Security </span>
+          <span class="text-sm font-medium">Account Security </span>
         </a>
+
 
         <button
           (click)="logout()"

@@ -25,8 +25,8 @@ export class CreatePatientComponent implements OnInit {
     referable: ['', Validators.compose([Validators.required])],
     discoveryDate: ['', Validators.compose([Validators.required])],
     notes: ['', Validators.compose([Validators.required])],
-
   });
+
   public diabetesTypes: DiabetesTypes[] = [];
   regions: Region[] = [];
 
@@ -34,7 +34,6 @@ export class CreatePatientComponent implements OnInit {
               private patientService: PatientsService,
               private regionService: RegionsService,
               private diabetesTypeService: DiabetesTypesService
-
   ) {
   }
 
@@ -58,7 +57,7 @@ export class CreatePatientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.regionService.gerRegions().subscribe(res => this.regions = res);
+    this.regionService.getRegions().subscribe(res => this.regions = res);
     this.diabetesTypeService.getDiabetesTypes().subscribe(res => this.diabetesTypes = res)
   }
 }

@@ -44,7 +44,7 @@ const routes: Routes = [
         {path: 'account/security', component: AccountSecurityComponent, pathMatch: 'full'},
         {
           path: '',
-          redirectTo: 'consultations',
+          redirectTo: 'patients',
           pathMatch: 'full'
         }
       ]
