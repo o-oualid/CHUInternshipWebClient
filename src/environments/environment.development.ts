@@ -1,3 +1,3 @@
 export const environment = {
-  apiEndPoint: "http://localhost:8080"
+  apiEndPoint: "https://api.retina.oualid.games"
 };
