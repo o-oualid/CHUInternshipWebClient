@@ -1,9 +1,9 @@
 <form (ngSubmit)="addRegion()">
-  <input type="text" [ngModel]="region">
+  <input type="text" name="region" [ngModel]="region">
   <button type="submit">Add Region</button>
 </form>
 
-<form (ngSubmit)="addDiabetesType()" )>
-  <input type="text" [ngModel]="diabetesType">
+<form (ngSubmit)="addDiabetesType()">
+  <input type="text" name="diabetesType"  [ngModel]="diabetesType">
   <button type="submit">Add diabetes Type</button>
 </form>
