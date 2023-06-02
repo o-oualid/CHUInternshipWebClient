@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {DiabetesTypes} from "../models/DiabetesTypes";
 import {map, of} from "rxjs";
+import {Region} from "../models/Region";
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,17 @@ export class DiabetesTypesService {
         this.diabetesTypes = diabetesTypes;
         return diabetesTypes;
       }));
+  }
+
+  addDiabetesType(diabetesType: string) {
+    const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
+    this.httpClient.post<DiabetesTypes>(environment.apiEndPoint + '/diabetes-types', {value: diabetesType}, {
+      headers: headers,
+      observe: 'response'
+    }).subscribe(res => {
+      if (res.ok && res.body) {
+        this.diabetesTypes.push(res.body);
+      }
+    });
   }
 }

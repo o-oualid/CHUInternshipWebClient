@@ -7,7 +7,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HeaderComponent} from './core/header/header.component';
 import {FooterComponent} from './core/footer/footer.component';
@@ -18,6 +18,7 @@ import { AccountDetailsComponent } from './account/details/account-details.compo
 import { AccountSecurityComponent } from './account/security/account-security.component';
 import { JoinComponent } from './join/join.component';
 import {ImagesModule} from "./images/images.module";
+import { ServerSettingComponent } from './server-setting/server-setting.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import {ImagesModule} from "./images/images.module";
         AccountDetailsComponent,
         AccountSecurityComponent,
         JoinComponent,
+        ServerSettingComponent,
     ],
     imports: [
         BrowserModule,
@@ -39,7 +41,8 @@ import {ImagesModule} from "./images/images.module";
         RouterModule,
         ReactiveFormsModule,
         HttpClientModule,
-        ImagesModule
+        ImagesModule,
+        FormsModule
 
     ],
     providers: [SetupService],
