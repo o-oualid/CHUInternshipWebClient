@@ -7,6 +7,7 @@ import {BaseComponent} from "./core/base/base.component";
 import {AccountDetailsComponent} from "./account/details/account-details.component";
 import {AccountSecurityComponent} from "./account/security/account-security.component";
 import {JoinComponent} from "./join/join.component";
+import {ServerSettingComponent} from "./server-setting/server-setting.component";
 
 const routes: Routes = [
     {
@@ -59,6 +60,7 @@ const routes: Routes = [
       component: JoinComponent,
       canActivate: [isServerSetup, isInvited]
     },
+    {path: 'server-settings', component: ServerSettingComponent, pathMatch: 'full'},
     {path: 'notFound', component: NotFoundComponent},
     {path: '**', redirectTo: 'notFound'}
   ]
