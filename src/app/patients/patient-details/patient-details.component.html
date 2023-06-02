@@ -13,12 +13,13 @@
         </a>
       </div>
       <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-2 mt-2">
-        <h1 class="whitespace-nowrap text-xl">{{patient.firstName}} {{patient.lastName}}</h1>
+        <h1 class="whitespace-nowrap text-xl">Patients Details</h1>
+        <h1 class="whitespace-nowrap">{{patient.firstName}} {{patient.lastName}}</h1>
         <h1 class="whitespace-nowrap">{{patient.cin}}</h1>
-        <h1 class="whitespace-nowrap">Birth Date {{patient.birthDate}}</h1>
-        <h1 class="whitespace-nowrap">Region {{region}}</h1>
-        <h1 class="whitespace-nowrap">Diabetes type {{diabetesType}}</h1>
-        <h1 class="whitespace-nowrap">Discovery Date {{patient.discoveryDate}}</h1>
+        <h1 class="whitespace-nowrap">Birth Date: {{patient.birthDate}}</h1>
+        <h1 class="whitespace-nowrap">Region: {{patient.region}}</h1>
+        <h1 class="whitespace-nowrap">Diabetes type: {{patient.diabetesType}}</h1>
+        <h1 class="whitespace-nowrap">Discovery Date: {{patient.discoveryDate}}</h1>
 
       </div>
       <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-4 mt-2">
@@ -39,6 +40,6 @@
         </form>
       </div>
     </div>
-    <div id='canvas' class="border-2 p-0 inline-block align-top"></div>
+    <div id='canvas' class="border-2 p-0 inline-block align-top bg-gray-300"></div>
   </div>
 </div>

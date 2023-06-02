@@ -13,6 +13,8 @@ import {PatientsService} from "../../services/patients.service";
 })
 export class CreateConsultationComponent implements OnInit {
 
+  leftEye: File = {} as File;
+  rightEye: File = {} as File;
   date = new Date();
   patientId: string = '';
   form = this.formBuilder.group({
@@ -52,5 +54,17 @@ export class CreateConsultationComponent implements OnInit {
         this.form.get('patient')?.patchValue(res.body.firstName + ' ' + res.body.lastName)
       }
     });
+  }
+
+  public onLeftEyeImagesChanged(event: any) {
+    if (event.target.files && event.target.files.length) {
+      this.leftEye = event.target.files[0];
+    }
+  }
+
+  public onRightEyeImagesChanged(event: any) {
+    if (event.target.files && event.target.files.length) {
+      this.rightEye = event.target.files[0];
+    }
   }
 }

@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@ng-web-apis/common": "^2.1.0",
+    "bootstrap-icons": "^1.10.5",
     "konva": "^9.0.2",
     "ng2-konva": "^6.0.0",
     "rxjs": "~7.8.0",

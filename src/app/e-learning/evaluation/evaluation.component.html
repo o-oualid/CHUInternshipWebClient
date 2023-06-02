@@ -1,0 +1,236 @@
+<div *ngIf="currentQuizIndex<=quizzes.length">
+  <div>
+    <h2 class="sr-only">Steps</h2>
+    <div class="mt-4 overflow-hidden rounded-full bg-gray-200">
+      <div class="h-2 rounded-full bg-blue-500" style="width:{{100*(currentQuizIndex/quizzes.length)}}%"></div>
+    </div>
+  </div>
+  {{currentQuizIndex}}/{{quizzes.length}}
+  <div class="grid grid-cols-2 mt-6 gap-4">
+    <div id="canvas" class="w-full h-min border  bg-gray-300 col-span-2 sm:col-span-1">
+      <img src="{{quizzes[currentQuizIndex-1].image}}" class="w-full">
+    </div>
+    <form [formGroup]="form" class="space-y-4 col-span-2 sm:col-span-1" >
+      <h1 class="ml-2 mt-6 mb-0 text-xl">Classification</h1>
+      <div>
+        <input
+          type="radio"
+          formControlName="classification"
+          id="classNone"
+          value="None"
+          class="peer hidden [&:checked_+_label_svg]:block"
+
+        />
+        <label
+          for="classNone"
+          class="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden h-5 w-5 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-gray-700 dark:text-gray-200">None</p>
+          </div>
+        </label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          formControlName="classification"
+          value="Class1"
+          id="Class1"
+          class="peer hidden [&:checked_+_label_svg]:block"
+
+        />
+        <label
+          for="Class1"
+          class="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden h-5 w-5 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-gray-700 dark:text-gray-200">Class 1</p>
+          </div>
+        </label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          formControlName="classification"
+          value="Class2"
+          id="Class2"
+          class="peer hidden [&:checked_+_label_svg]:block"
+
+        />
+        <label
+          for="Class2"
+          class="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden h-5 w-5 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-gray-700 dark:text-gray-200">Class 2</p>
+          </div>
+        </label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          formControlName="classification"
+          value="Class3"
+          id="Class3"
+          class="peer hidden [&:checked_+_label_svg]:block"
+
+        />
+        <label
+          for="Class3"
+          class="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden h-5 w-5 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-gray-700 dark:text-gray-200">Class 3</p>
+          </div>
+        </label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          formControlName="classification"
+          value="Class4"
+          id="Class4"
+          class="peer hidden [&:checked_+_label_svg]:block"
+
+        />
+        <label
+          for="Class4"
+          class="flex cursor-pointer items-center justify-between rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 peer-checked:border-blue-500 peer-checked:ring-1 peer-checked:ring-blue-500 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden h-5 w-5 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-gray-700 dark:text-gray-200">Class 4</p>
+          </div>
+        </label>
+      </div>
+      <h1 class="ml-2 mt-6 mb-0 text-xl">Notes</h1>
+      <textarea formControlName="notes"
+        class="w-full h-64 rounded-lg border border-gray-100 bg-white p-4 text-sm shadow-sm hover:border-gray-200  dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700"></textarea>
+    </form>
+    <div class="col-span-2 flex flex-row-reverse justify-between">
+
+
+      <a class="select-none inline-flex cursor-pointer items-center gap-2 rounded border border-blue-600 bg-blue-600 px-8 py-3 text-white hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+        (click)="nextQuiz()"
+      >
+        <span class="text-sm font-medium"> Next </span>
+
+        <svg
+          class="h-5 w-5rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </a>
+
+      <a *ngIf="currentQuizIndex>1"
+         class="select-none inline-flex cursor-pointer items-center gap-2 rounded border border-blue-600 px-8 py-3 text-blue-600 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500"
+         (click)="previousQuiz()"
+      >
+
+        <svg
+          class="h-5 w-5 rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+        <span class="text-sm font-medium"> Previous </span>
+
+      </a>
+
+
+    </div>
+  </div>
+</div>
+<div *ngIf="currentQuizIndex>quizzes.length">
+  <div class="flex items-center justify-center h-screen">
+    <svg class="-rotate-90 w-72 h-72">
+      <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent" class="text-gray-500"/>
+      <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent"
+              :stroke-dasharray="753"
+              attr.stroke-dashoffset="{{753 - score *753}}"
+              class="{{score>=0.75?'text-green-500':'text-red-500'}}"/>
+    </svg>
+    <span class="absolute text-5xl">{{score>=0.75?'Good Job':'Try harder'}}</span>
+  </div>
+</div>

@@ -1,9 +1,5 @@
 import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
-import {DiabetesTypes} from "../../models/DiabetesTypes";
-import {Region} from "../../models/Region";
 import {PatientsService} from "../../services/patients.service";
-import {RegionsService} from "../../services/regions.service";
-import {DiabetesTypesService} from "../../services/diabetes-types.service";
 import {mergeMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PatientDetails} from "../../models/PatientDetails";
@@ -22,11 +18,7 @@ import Filters = Konva.Filters;
 export class PatientDetailsComponent implements OnInit, AfterViewInit {
 
   whiteBoard!: WhiteBoard;
-  diabetesType: string = "";
-  region: string = "";
   patient: PatientDetails = {} as PatientDetails;
-  public diabetesTypes: DiabetesTypes[] = [];
-  regions: Region[] = [];
   private image: Image = {} as Image;
 
 
@@ -50,9 +42,7 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
   constructor(@Inject(WINDOW) private windowRef: Window,
               private router: Router,
               private route: ActivatedRoute,
-              private patientService: PatientsService,
-              private regionService: RegionsService,
-              private diabetesTypeService: DiabetesTypesService) {
+              private patientService: PatientsService) {
   }
 
   ngOnInit(): void {
@@ -64,16 +54,6 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
         this.router.navigateByUrl('/notFound');
       } else {
         this.patient = res.body;
-
-        //FIXME: memory leak
-        this.regionService.getRegions().subscribe(res => {
-          this.region = res.find((reg, num, list) => reg.id === this.patient.regionId)?.name ?? "";
-        });
-
-        this.diabetesTypeService.getDiabetesTypes().subscribe(res => {
-          this.diabetesType = res.find((reg, num, list) => reg.id === this.patient.diabetesTypeId)?.name ?? "";
-        });
-        // end of memory leak
       }
     });
   }
@@ -102,19 +82,7 @@ export class PatientDetailsComponent implements OnInit, AfterViewInit {
     this.image.brightness(Number((event.target as HTMLInputElement).value));
   }
 
-  grayScale(event: Event) {
-    const element = event.target as HTMLInputElement;
-    if (element.checked) {
-      this.image.filters().push(Filters.Grayscale)
-      this.image.filters(this.image.filters());
-    } else {
-      this.image.filters(this.image.filters().filter(filter => filter !== Filters.Grayscale));
-    }
-  }
-
-
   toggleFilter(event: Event, filter: Filter) {
-    const element = event.target as HTMLInputElement;
     if (this.image.filters().find(x => x === filter) !== undefined) {
       this.image.filters(this.image.filters().filter(x => x !== filter));
     } else {

@@ -40,6 +40,11 @@ const routes: Routes = [
           loadChildren: () => import('./consultations/consultations.module').then(m => m.ConsultationsModule),
           pathMatch: 'prefix'
         },
+        {
+          path: 'e-learning',
+          loadChildren: () => import('./e-learning/e-learning.module').then(m => m.ELearningModule),
+          pathMatch: 'prefix'
+        },
         {path: 'account/details', component: AccountDetailsComponent, pathMatch: 'full'},
         {path: 'account/security', component: AccountSecurityComponent, pathMatch: 'full'},
         {

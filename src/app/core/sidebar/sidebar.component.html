@@ -1,27 +1,14 @@
-<div class="select-none fixed top-0 flex max-h-screen min-h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
-    <img ngSrc="assets/logo.png" class="px-4 pt-2" height="224" width="418" alt="">
+<div
+  class="select-none fixed top-0 flex max-h-screen min-h-screen w-64 flex-col justify-between border-e bg-white dark:bg-gray-900 dark:border-gray-800">
+  <img ngSrc="assets/logo.png" class="px-4 pt-2" height="224" width="418" alt="">
   <nav aria-label="Main Nav" class="px-4 mt-6 flex flex-grow flex-col space-y-1 overflow-auto">
     <details class="group [&_summary::-webkit-details-marker]:hidden">
       <summary
         class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url.startsWith('/patients') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
       >
         <div class="flex items-center gap-2 ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 opacity-75"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-
-          <span class="select-none text-sm font-medium"> Consultations </span>
+          <i class="bi bi-house-door"></i>
+            <span class="select-none text-sm font-medium"> Consultations </span>
         </div>
 
         <span class="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -73,21 +60,7 @@
         class="{{router.url.startsWith('/e-learning') ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}  flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-950"
       >
         <div class="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 opacity-75"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-
+          <i class="bi bi-book w-5 h-5 stroke-2"></i>
           <span class="select-none text-sm font-medium">E-Learning</span>
         </div>
 
@@ -109,7 +82,7 @@
 
       <nav aria-label="Teams Nav" class="mt-2 flex flex-col px-4">
         <a
-          [routerLink]="['/e-learning']"
+          [routerLink]="['/e-learning/knowledge']"
           class="flex items-center gap-2 rounded-lg px-4 py-2 t hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950 {{router.url==='/users' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}}"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
@@ -117,21 +90,15 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
 
-          <span class="text-sm font-medium"> List </span>
+          <span class="text-sm font-medium"> knowledge </span>
         </a>
 
         <a
-          [routerLink]="['/users/add']"
-          class="{{router.url==='/users/add' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
+          [routerLink]="['/e-learning/evaluation']"
+          class="{{router.url==='/e-learning/evaluation' ?'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100' :'text-gray-500 dark:text-gray-400'}} flex items-center gap-2 rounded-lg px-4 py-2 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-300 dark:hover:bg-gray-950"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5" viewBox="0 0 16 16">
-            <path
-              d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-            <path fill-rule="evenodd"
-                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-          </svg>
-
-          <span class="text-sm font-medium"> Invite </span>
+          <i class="bi bi-card-checklist w-5 h-5"></i>
+          <span class="text-sm font-medium"> Evaluation </span>
         </a>
       </nav>
     </details>
@@ -186,7 +153,7 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg>
 
-          <span class="text-sm font-medium"> List </span>
+          <span class="text-sm font-medium"> Users </span>
         </a>
 
         <a
