@@ -14,42 +14,42 @@ import {FooterComponent} from './core/footer/footer.component';
 import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {BaseComponent} from './core/base/base.component';
 import {SetupService} from "./setup/setup.service";
-import { AccountDetailsComponent } from './account/details/account-details.component';
-import { AccountSecurityComponent } from './account/security/account-security.component';
-import { JoinComponent } from './join/join.component';
+import {AccountDetailsComponent} from './account/details/account-details.component';
+import {AccountSecurityComponent} from './account/security/account-security.component';
+import {JoinComponent} from './join/join.component';
 import {ImagesModule} from "./images/images.module";
-import { ServerSettingComponent } from './server-setting/server-setting.component';
+import {ServerSettingComponent} from './server-setting/server-setting.component';
+import {RegionsService} from "./services/regions.service";
+import {DiabetesTypesService} from "./services/diabetes-types.service";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        NotFoundComponent,
-        HeaderComponent,
-        FooterComponent,
-        SidebarComponent,
-        BaseComponent,
-        AccountDetailsComponent,
-        AccountSecurityComponent,
-        JoinComponent,
-        ServerSettingComponent,
-    ],
-    imports: [
-        BrowserModule,
-        NgOptimizedImage,
-        AppRoutingModule,
-        RouterModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ImagesModule,
-        FormsModule
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    BaseComponent,
+    AccountDetailsComponent,
+    AccountSecurityComponent,
+    JoinComponent,
+    ServerSettingComponent,
+  ],
+  imports: [
+    BrowserModule,
+    NgOptimizedImage,
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ImagesModule,
+    FormsModule
 
-    ],
-    providers: [SetupService],
-    exports: [
-
-    ],
-    bootstrap: [AppComponent]
+  ],
+  providers: [SetupService, RegionsService, DiabetesTypesService],
+  exports: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
