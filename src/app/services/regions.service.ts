@@ -31,6 +31,7 @@ export class RegionsService {
     }).subscribe(res => {
       if (res.ok && res.body) {
         this.regions.push(res.body);
+        console.log("region added: "+res.body.name)
       }
     });
   }
