@@ -3,8 +3,8 @@
 >
   Change password
 </h1>
-<form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 gap-6">
-  <div class="w-64 mb-8">
+<form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 max-w-sm">
+  <div class=" mb-8">
     <label
       for="CurrentPassword"
       class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -19,7 +19,7 @@
       formControlName="currentPassword"
     />
   </div>
-  <div class="w-64 mb-8">
+  <div class=" mb-8">
     <label
       for="NewPassword"
       class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -34,7 +34,7 @@
       formControlName="newPassword"
     />
   </div>
-  <div class="w-64 mb-8">
+  <div class=" mb-8">
     <label
       for="NewPasswordConfirmation"
       class="block text-sm font-medium text-gray-700 dark:text-gray-200"

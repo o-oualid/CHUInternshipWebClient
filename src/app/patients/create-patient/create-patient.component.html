@@ -6,8 +6,8 @@
   </h1>
 
 
-  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-8 gap-6">
-    <div class="block col-span-4 sm:col-span-4">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-2 gap-6 sm:max-w-7xl">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="FirstName"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -23,7 +23,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="LastName"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -39,7 +39,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="CIN"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -55,7 +55,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="birthDate"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -71,7 +71,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="gender"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -91,7 +91,7 @@
       </select>
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="phone"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -107,7 +107,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="diabetesTypeId"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -126,7 +126,7 @@
       </select>
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="region"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -145,7 +145,7 @@
       </select>
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="referable"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -164,7 +164,7 @@
       </select>
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="discoveryDate"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -180,7 +180,7 @@
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
+    <div class="block col-span-2 sm:col-span-1">
       <label
         for="notes"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -197,7 +197,7 @@
     </div>
 
 
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+    <div class="col-span-2 sm:flex sm:items-center sm:gap-4">
       <input type="submit" [disabled]="form.invalid"
              class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
              value="Add"

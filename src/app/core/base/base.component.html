@@ -1,8 +1,14 @@
-<div id="top"></div>
-<app-sidebar class="w-64"></app-sidebar>
-<div class="ml-64">
-  <div class="ml-16 mr-16 mt-8 mb-8 min-h-screen">
-    <router-outlet ></router-outlet>
+<div class="md:collapse flex items-center fixed top-0 bg-white w-full px-2  m-0 z-20">
+  <div class="pr-4">
+    <i *ngIf="state!==''" (click)="changeState()" class="bi bi-list text-xl"></i>
+    <i *ngIf="state===''" (click)="changeState()" class="bi bi-x-lg text-xl"></i>
+  </div>
+  <img ngSrc="assets/favicon.png" height="57" width="57" alt="Logo">
+</div>
+<app-sidebar class="{{state}} md:visible w-64 fixed top-0 mt-14 md:mt-0 z-20"></app-sidebar>
+<div id="top" class="md:ml-64">
+  <div class="mx-2 sm:mx-16 mt-16 sm:my-8 min-h-screen">
+    <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
 </div>

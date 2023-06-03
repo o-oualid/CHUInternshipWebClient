@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {state} from "@angular/animations";
 
 @Component({
   selector: 'app-base',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class BaseComponent {
 
+  protected state :string='collapse'
+
+  changeState() {
+    this.state=this.state==='collapse'?'':'collapse';
+  }
 }
