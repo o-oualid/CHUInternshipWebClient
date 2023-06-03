@@ -83,7 +83,7 @@
       </tr>
 
       <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-      <tr routerLink="/users/{{user.id}}" class="hover:shadow-inner" *ngFor="let user of page.content">
+      <tr routerLink="/users/{{user.id}}" class="select-none cursor-pointer hover:shadow-inner" *ngFor="let user of page.content">
         <td
           class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
         >
