@@ -21,6 +21,13 @@ export class CreateConsultationComponent implements OnInit {
     patient: ['', Validators.compose([Validators.required])],
     notes: [''],
     consultationDate: [formatDate(this.date, "yyyy-MM-dd", 'en-US'), Validators.compose([Validators.required])],
+    leftEyeImage:[''],
+    leftEyeClassification:[''],
+    leftEyeNotes:[],
+    rightEyeImage:[''],
+    rightEyeClassification:[''],
+    rightEyeNotes:[]
+
   });
 
   constructor(private formBuilder: FormBuilder,

@@ -1,66 +1,42 @@
 <div class="max-w-xl lg:max-w-3xl">
-  <h1
-    class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl"
-  >
+  <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
     New Consultation
   </h1>
 
+  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-2 gap-6">
 
-  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-8 gap-6">
-
-    <div class="block col-span-4 sm:col-span-4">
-      <label
-        for="patient"
-        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-      >
+    <div class="block col-span-2 sm:col-span-1">
+      <label for="patient" class="block text-sm font-medium text-gray-700 dark:text-gray-200">
         Patient
       </label>
-
-      <input
-        type="text"
-        id="patient"
-        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-        formControlName="patient"
+      <input type="text" id="patient" formControlName="patient"
+             class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
       />
     </div>
 
-    <div class="block col-span-4 sm:col-span-4">
-      <label
-        for="consultationDate"
-        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-      >
+    <div class="block col-span-2 sm:col-span-1">
+      <label for="consultationDate" class="block text-sm font-medium text-gray-700 dark:text-gray-200">
         Consultation Date
       </label>
-
-      <input
-        type="date"
-        id="consultationDate"
-        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-        formControlName="consultationDate"
-
+      <input type="date" id="consultationDate" formControlName="consultationDate"
+             class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
       />
     </div>
 
-    <div class="block col-span-8 sm:col-span-8">
-      <label
-        for="notes"
-        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-      >
+    <div class="col-span-2">
+      <label for="notes" class="block text-sm font-medium text-gray-700 dark:text-gray-200">
         Notes
       </label>
 
-      <textarea
-        type="text"
-        id="notes"
-        class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-        formControlName="notes"
+      <textarea type="text" id="notes" formControlName="notes"
+                class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
       ></textarea>
     </div>
 
 
-    <div class="bg-gray-100 block col-span-8 sm:col-span-4 p-4 rounded-md">
-      <h1 class="text-xl text-gray-800 font-medium mb-2">Left Eye</h1>
-      <div class="block col-span-8 sm:col-span-4">
+    <div class="bg-gray-100 dark:bg-gray-900 block col-span-2 lg:col-span-1 p-4 rounded-md">
+      <h1 class="text-xl text-gray-800 dark:text-gray-200 font-medium mb-2">Left Eye</h1>
+      <div class="block col-span-2 sm:col-span-1">
         <label
           for="LefEyeImage"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -72,11 +48,11 @@
           type="file"
           id="LefEyeImage"
           class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="image"
+          formControlName="leftEyeImage"
           (change)="onLeftEyeImagesChanged($event)"
         />
       </div>
-      <div class="block col-span-8 sm:col-span-4">
+      <div class="block">
         <label
           for="LefEyeClassification"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -87,7 +63,7 @@
         <select
           id="LefEyeClassification"
           class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="classification"
+          formControlName="leftEyeClassification"
         >
           <option value="" selected disabled>--SELECT CLASSIFICATION--</option>
           <option value="UNKNOWN">Unknown</option>
@@ -98,22 +74,7 @@
           <option value="CLASS_4">Class 4</option>
         </select>
       </div>
-      <div class="block col-span-8 sm:col-span-4">
-        <label
-          for="dateTaken"
-          class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-        >
-          Date Taken
-        </label>
-
-        <input
-          type="date"
-          id="LefEyeDateTaken"
-          class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="dateTaken"
-        />
-      </div>
-      <div class="block col-span-8 sm:col-span-4">
+      <div class="block">
         <label
           for="LeftEyeNotes"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -125,16 +86,16 @@
           type="text"
           id="LeftEyeNotes"
           class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="notes"
+          formControlName="leftEyeNotes"
         />
       </div>
 
     </div>
 
-    <div class="bg-gray-100 block col-span-8 sm:col-span-4 p-4 rounded-md">
-      <h1 class="text-xl text-gray-800 font-medium mb-2">Right Eye</h1>
+    <div class="bg-gray-100 dark:bg-gray-900 block col-span-2 lg:col-span-1 p-4 rounded-md">
+      <h1 class="text-xl text-gray-800 dark:text-gray-100 font-medium mb-2">Right Eye</h1>
 
-      <div class="block col-span-8 sm:col-span-4">
+      <div class="block col-span-2 sm:col-span-1">
         <label
           for="Image"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -146,11 +107,11 @@
           type="file"
           id="Image"
           class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="image"
+          formControlName="rightEyeImage"
           (change)="onLeftEyeImagesChanged($event)"
         />
       </div>
-      <div class="block col-span-8 sm:col-span-4">
+      <div class="block col-span-2 sm:col-span-1">
         <label
           for="Classification"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -161,7 +122,7 @@
         <select
           id="Classification"
           class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="classification"
+          formControlName="rightEyeClassification"
         >
           <option value="" selected disabled>--SELECT CLASSIFICATION--</option>
           <option value="UNKNOWN">Unknown</option>
@@ -172,23 +133,8 @@
           <option value="CLASS_4">Class 4</option>
         </select>
       </div>
-      <div class="block col-span-8 sm:col-span-4">
-        <label
-          for="dateTaken"
-          class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-        >
-          Date Taken
-        </label>
 
-        <input
-          type="date"
-          id="dateTaken"
-          class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="dateTaken"
-        />
-      </div>
-
-      <div class="block col-span-8 sm:col-span-4">
+      <div class="block col-span-full sm:col-span-1">
         <label
           for="RightEyeNotes"
           class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -199,14 +145,13 @@
           type="text"
           id="RightEyeNotes"
           class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-          formControlName="notes"
+          formControlName="rightEyeNotes"
         />
       </div>
-
     </div>
 
 
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+    <div class="col-span-full sm:flex sm:items-center sm:gap-4">
       <input type="submit" [disabled]="form.invalid"
              class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
              value="Submit"
