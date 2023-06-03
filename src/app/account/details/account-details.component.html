@@ -2,8 +2,9 @@
   <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
     Account Details
   </h1>
+
   <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-2 max-w-2xl gap-6">
-    <div class="block col-span-2 sm:col-span-1">
+    <div class="block col-span-full sm:col-span-1">
       <label
         for="FirstName"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200 "
@@ -16,11 +17,10 @@
         id="FirstName"
         class="disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:text-gray-400 dark:disabled:bg-gray-700 mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
         formControlName="firstName"
-
       />
     </div>
 
-    <div class="block col-span-2 sm:col-span-1">
+    <div class="block col-span-full sm:col-span-1">
       <label
         for="LastName"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -38,7 +38,7 @@
       />
     </div>
 
-    <div class="block col-span-2 sm:col-span-1">
+    <div class="block col-span-full sm:col-span-1">
       <label
         for="Email"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -55,7 +55,7 @@
 
       />
     </div>
-    <div class="block col-span-2 sm:col-span-1">
+    <div class="block col-span-full sm:col-span-1">
       <label
         for="Role"
         class="block text-sm font-medium text-gray-700 dark:text-gray-200"
@@ -75,7 +75,7 @@
     </div>
     <div class="col-span-full sm:flex sm:items-center sm:gap-4">
       <input type="submit" [disabled]="true"
-             class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 enabled:focus:outline-none enabled:focus:ring enabled:active:text-blue-500 enabled:dark:hover:bg-blue-700 enabled:dark:hover:text-white"
+             class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 enabled:focus:outline-none enabled:focus:ring enabled:active:text-blue-500 enabled:dark:hover:bg-blue-700 enabled:dark:hover:text-white"
              value="Update Details"
       />
 

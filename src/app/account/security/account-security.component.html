@@ -1,60 +1,61 @@
-<h1
-  class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl"
->
-  Change password
-</h1>
-<form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 max-w-sm">
-  <div class=" mb-8">
-    <label
-      for="CurrentPassword"
-      class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-    >
-      Current Password
-    </label>
+<div class="max-w-xl lg:max-w-3xl">
+  <h1 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl md:text-4xl">
+    Change password
+  </h1>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-2 gap-6">
+    <div class="col-span-full sm:col-span-1">
+      <label
+        for="CurrentPassword"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Current Password
+      </label>
+      <input
+        type="password"
+        id="CurrentPassword"
+        class="mt-1 w-full p-2 ps-2.5  rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="currentPassword"
+      />
+    </div>
+    <div class="col-span-1 hidden sm:block"></div>
+    <div>
+      <label
+        for="NewPassword"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        New Password
+      </label>
 
-    <input
-      type="password"
-      id="CurrentPassword"
-      class="w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-      formControlName="currentPassword"
-    />
-  </div>
-  <div class=" mb-8">
-    <label
-      for="NewPassword"
-      class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-    >
-      New Password
-    </label>
+      <input
+        type="password"
+        id="NewPassword"
+        class="mt-1 w-full p-2 ps-2.5  sm:col-span-1 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="newPassword"
+      />
+    </div>
+    <div class="col-span-1 hidden sm:block"></div>
+    <div class="col-span-full sm:col-span-1">
+      <label
+        for="NewPasswordConfirmation"
+        class="block text-sm font-medium text-gray-700 dark:text-gray-200"
+      >
+        Confirm Password
+      </label>
 
-    <input
-      type="password"
-      id="NewPassword"
-      class="w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-      formControlName="newPassword"
-    />
-  </div>
-  <div class=" mb-8">
-    <label
-      for="NewPasswordConfirmation"
-      class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-    >
-      Confirm Password
-    </label>
+      <input
+        type="password"
+        id="NewPasswordConfirmation"
+        class="mt-1 w-full p-2 ps-2.5  rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        formControlName="newPasswordConfirmation"
+      />
+    </div>
+    <div class="col-span-1 hidden sm:block"></div>
+    <div class="col-span-full flex">
+      <input type="submit" [disabled]="form.invalid"
+             class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
+             value="Update password"
+      />
 
-    <input
-      type="password"
-      id="NewPasswordConfirmation"
-      class="w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-      formControlName="newPasswordConfirmation"
-    />
-  </div>
-
-  <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-    <input type="submit" [disabled]="form.invalid"
-           class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
-           value="Update password"
-    />
-
-  </div>
-</form>
+    </div>
+  </form>
+</div>
