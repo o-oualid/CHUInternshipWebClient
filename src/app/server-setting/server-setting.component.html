@@ -4,6 +4,11 @@
 </form>
 
 <form (ngSubmit)="addDiabetesType()">
-  <input type="text" name="diabetesType"  [(ngModel)]="diabetesType">
+  <input type="text" name="diabetesType" [(ngModel)]="diabetesType">
   <input type="submit" value="Add diabetes Type">
 </form>
+
+<button (click)="showPopUp()">PopUp</button>
+<app-popup class="{{visibility}}"
+           title="Patient created, would you like to make a consultation?" okTitle="Yes" cancelTitle="No"
+           (cancelClicked)="hidePopUp()"></app-popup>

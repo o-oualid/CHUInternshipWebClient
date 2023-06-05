@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {DiabetesTypesService} from "../services/diabetes-types.service";
 import {RegionsService} from "../services/regions.service";
+import {PopupComponent} from "../utils/popup/popup.component";
 
 @Component({
   selector: 'app-server-setting',
@@ -10,6 +11,7 @@ import {RegionsService} from "../services/regions.service";
 export class ServerSettingComponent {
   diabetesType: string = '';
   region: string = '';
+  visibility='collapse'
 
   constructor(private diabetesTypesService: DiabetesTypesService, private regionsService: RegionsService) {
 
@@ -25,5 +27,12 @@ export class ServerSettingComponent {
     if(this.region.trim().length>3){
       this.regionsService.addRegion(this.region);
     }
+  }
+
+  showPopUp() {
+    this.visibility=''
+  }
+  public hidePopUp(){
+    this.visibility='collapse'
   }
 }

@@ -1,0 +1,20 @@
+<div class="m-0 p-0 fixed bottom-10 right-10 z-10">
+  <div class="rounded-lg bg-white dark:bg-gray-900 p-8 shadow-2xl">
+    <h2 class="text-lg font-bold">{{title}}</h2>
+    <div class="mt-4 flex flex-row-reverse gap-2">
+      <button
+        (click)="onCancelClicked()"
+        class="rounded bg-gray-50 px-4 py-2 text-sm font-medium text-gray-600"
+        type="button">
+        {{cancelTitle}}
+      </button>
+
+      <button
+        (click)="onOkClicked()"
+        type="button"
+        class="rounded bg-green-50 px-4 py-2 text-sm font-medium text-green-600">
+        {{okTitle}}
+      </button>
+    </div>
+  </div>
+</div>

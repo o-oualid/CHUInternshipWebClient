@@ -60,4 +60,5 @@ export class CreatePatientComponent implements OnInit {
     this.regionService.getRegions().subscribe(res => this.regions = res);
     this.diabetesTypeService.getDiabetesTypes().subscribe(res => this.diabetesTypes = res)
   }
+
 }

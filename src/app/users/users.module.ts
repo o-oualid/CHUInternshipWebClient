@@ -6,6 +6,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserDetailsComponent } from './details/user-details.component';
+import {AppModule} from "../app.module";
 
 
 @NgModule({
@@ -14,10 +15,10 @@ import { UserDetailsComponent } from './details/user-details.component';
     AddUserComponent,
     UserDetailsComponent
   ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        UsersRoutingModule,
+        ReactiveFormsModule,
+    ]
 })
 export class UsersModule { }

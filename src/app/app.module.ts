@@ -21,6 +21,7 @@ import {ImagesModule} from "./images/images.module";
 import {ServerSettingComponent} from './server-setting/server-setting.component';
 import {RegionsService} from "./services/regions.service";
 import {DiabetesTypesService} from "./services/diabetes-types.service";
+import {UtilsModule} from "./utils/utils.module";
 
 @NgModule({
   declarations: [
@@ -44,11 +45,11 @@ import {DiabetesTypesService} from "./services/diabetes-types.service";
     ReactiveFormsModule,
     HttpClientModule,
     ImagesModule,
-    FormsModule
+    FormsModule,
+    UtilsModule
 
   ],
   providers: [SetupService, RegionsService, DiabetesTypesService],
-  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule, DatePipe} from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 import {PatientRoutingModule} from './patient-routing.module';
 import {ListPatientsComponent} from './list-patients/list-patients.component';
@@ -20,7 +20,8 @@ import {ImagesModule} from "../images/images.module";
     PatientRoutingModule,
     ReactiveFormsModule,
     ImagesModule,
-    FormsModule
+    FormsModule,
+
   ]
 })
 export class PatientsModule {
