@@ -1,4 +1,5 @@
 import {Image} from "./Image";
+import {Consultation} from "./Consultation";
 
 export class PatientDetails {
   id: string;
@@ -13,9 +14,9 @@ export class PatientDetails {
   referable: boolean;
   discoveryDate: string;
   notes: string;
-  images: Image[];
+  consultations: Consultation[];
 
-  constructor(id: string, firstName: string, lastName: string, cin: string, birthDate: string, gender: string, phone: string, diabetesType: string, region: string, referable: boolean, discoveryDate: string, notes: string, images: Image[]) {
+  constructor(id: string, firstName: string, lastName: string, cin: string, birthDate: string, gender: string, phone: string, diabetesType: string, region: string, referable: boolean, discoveryDate: string, notes: string, consultations: Consultation[]) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -28,6 +29,6 @@ export class PatientDetails {
     this.referable = referable;
     this.discoveryDate = discoveryDate;
     this.notes = notes;
-    this.images = images;
+    this.consultations = consultations;
   }
 }

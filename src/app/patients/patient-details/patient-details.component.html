@@ -1,45 +1,135 @@
-<div class="">
-  <div class="items-start ">
-    <div class="inline-block align-top mr-2">
-      <div class="py-2 mt-2 flex">
-        <a class="rounded-md bg-blue-600 text-white px-4 py-2 ml-2 text-sm flex active:shadow-inner shadow"
-           routerLink="/consultations/create/{{patient.id}}">
-          <svg xmlns="http://www.w3.org/2000/svg"
-               class="h-5 w-5 mr-2" viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-          </svg>
-          New Consultation
-        </a>
-      </div>
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-2 mt-2">
-        <h1 class="whitespace-nowrap text-xl">Patients Details</h1>
-        <h1 class="whitespace-nowrap">{{patient.firstName}} {{patient.lastName}}</h1>
-        <h1 class="whitespace-nowrap">{{patient.cin}}</h1>
-        <h1 class="whitespace-nowrap">Birth Date: {{patient.birthDate}}</h1>
-        <h1 class="whitespace-nowrap">Region: {{patient.region}}</h1>
-        <h1 class="whitespace-nowrap">Diabetes type: {{patient.diabetesType}}</h1>
-        <h1 class="whitespace-nowrap">Discovery Date: {{patient.discoveryDate}}</h1>
-
-      </div>
-      <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-6 py-4 mt-2">
-        <h1 class="whitespace-nowrap text-xl">Image Filters</h1>
-        <form>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-2">
+  <div class="col-span-full lg:col-span-1">
+    <div class="flex">
+      <a class="rounded-md bg-blue-600 text-white px-4 py-2 text-sm flex active:shadow-inner shadow"
+         routerLink="/consultations/create/{{patient?.id}}">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-5 w-5 mr-2" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        New Consultation
+      </a>
+    </div>
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-4 py-2 mt-2">
+      <h1 class="whitespace-nowrap text-xl">Patients Details:</h1>
+      <h1 class="whitespace-nowrap">Name: {{patient?.firstName}} {{patient?.lastName}}</h1>
+      <h1 class="whitespace-nowrap">CIN: {{patient?.cin}}</h1>
+      <h1 class="whitespace-nowrap">Birth Date: {{patient?.birthDate}}</h1>
+      <h1 class="whitespace-nowrap">Region: {{patient?.region}}</h1>
+      <h1 class="whitespace-nowrap">Diabetes type: {{patient?.diabetesType}}</h1>
+      <h1 class="whitespace-nowrap">Discovery Date: {{patient?.discoveryDate}}</h1>
+    </div>
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-4 py-2 mt-2">
+      <h1 class="whitespace-nowrap text-xl">Image Filters</h1>
+      <form class="flex flex-col gap-1">
+        <label>
           Brightness
-          <input type="range" value="0" step="0.01" min="-1" max="1" (input)="brightnessChanged($event)"><br>
+          <input type="range" value="0" step="0.01" min="-1" max="1" (input)="brightnessChanged($event)">
+        </label>
+        <label>
           Gray scale
           <input type="checkbox" class="bg-gray-300 border-gray-300 text-gray-500 w-8 h-8"
-                 (input)="toggleFilter($event,Filters.Grayscale)"><br>
+                 (input)="toggleFilter($event,Filters.Grayscale)">
+        </label>
+        <label>
           Colors
           <input type="checkbox" class="bg-red-300 border-red-300 text-red-500 w-8 h-8" checked="checked"
                  (input)="toggleFilter($event,RedFilter)">
           <input type="checkbox" class="bg-green-300 border-green-300 text-green-500 w-8 h-8" checked="checked"
                  (input)="toggleFilter($event,GreenFilter)">
           <input type="checkbox" class="bg-blue-300 border-blue-300 text-blue-500 w-8 h-8" checked="checked"
-                 (input)="toggleFilter($event,BlueFilter)"><br>
-        </form>
-      </div>
+                 (input)="toggleFilter($event,BlueFilter)">
+        </label>
+      </form>
     </div>
-    <div id='canvas' class="border-2 p-0 inline-block align-top bg-gray-300"></div>
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-4 py-2 mt-2">
+      <h1 class="text-xl">Notes:</h1>
+      <p>{{patient?.notes}}</p>
+    </div>
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-4 py-2 mt-2">
+      <h1 class="text-xl">Class</h1>
+      <p>4</p>
+      <button class="bg-blue-600 rounded-md hover:shadow-inner px-4 py-1 ">Show AI prediction</button>
+    </div>
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-md px-4 py-2 mt-2 col-span-full">
+      <h1 class="text-xl">Consultations</h1>
+      <table
+        class="mt-2 select-none min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900 rounded-lg ">
+
+        <tr>
+          <th class="text-left whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Date</th>
+          <th class="text-left whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Left eye</th>
+          <th class="text-left whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Right eye</th>
+        </tr>
+        <tr class="hover:shadow-inner cursor-pointer">
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            23/05/1998
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+        </tr>
+
+        <tr class="hover:shadow-inner cursor-pointer">
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            23/05/1998
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+        </tr>
+
+        <tr class="hover:shadow-inner cursor-pointer">
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            23/05/1998
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+        </tr>
+
+        <tr class="hover:shadow-inner cursor-pointer">
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            23/05/1998
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+        </tr>
+
+        <tr class="hover:shadow-inner cursor-pointer">
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            23/05/1998
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
+            5
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="col-span-full lg:col-span-2">
+    <div class="grid grid-cols-2 text-sm">
+      <button class="bg-blue-700 rounded-l-md py-2 hover:shadow-inner">Left Eye</button>
+      <button class="bg-blue-900 rounded-r-md py-2 hover:shadow-inner">Right Eye</button>
+    </div>
+    <div id='canvas' class="mt-2 p-0 bg-gray-200 dark:bg-gray-800 h-min"></div>
   </div>
 </div>
