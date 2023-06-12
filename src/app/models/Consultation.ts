@@ -1,15 +1,16 @@
 import {ImageCreation} from "./ImageCreation";
+import {ImageDetails} from "./ImageDetails";
 
 export class Consultation {
 
   id?: string;
   patientId: string;
-  leftEye?: ImageCreation;
-  rightEye?: ImageCreation;
+  leftEye?: ImageDetails;
+  rightEye?: ImageDetails;
   date: String;
   notes: String;
 
-  constructor(id: string, patientId: string, leftEye: ImageCreation, rightEye: ImageCreation, date: String, notes: String) {
+  constructor(id: string, patientId: string, leftEye: ImageDetails, rightEye: ImageDetails, date: String, notes: String) {
     this.id = id;
     this.patientId = patientId;
     this.leftEye = leftEye;

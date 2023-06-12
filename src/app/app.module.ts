@@ -17,7 +17,6 @@ import {SetupService} from "./setup/setup.service";
 import {AccountDetailsComponent} from './account/details/account-details.component';
 import {AccountSecurityComponent} from './account/security/account-security.component';
 import {JoinComponent} from './join/join.component';
-import {ImagesModule} from "./images/images.module";
 import {ServerSettingComponent} from './server-setting/server-setting.component';
 import {RegionsService} from "./services/regions.service";
 import {DiabetesTypesService} from "./services/diabetes-types.service";
@@ -44,7 +43,6 @@ import {UtilsModule} from "./utils/utils.module";
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ImagesModule,
     FormsModule,
     UtilsModule
 

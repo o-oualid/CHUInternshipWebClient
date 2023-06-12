@@ -6,19 +6,12 @@ export class ImageDetails {
   public picturePath: string;
   public classification: string;
   public notes: string;
-  public patient: Patient | null;
-  public user: User | null;
-  public rightEye: boolean;
-  public dateTaken: string;
 
-  constructor(id: string, picturePath: string, classification: string, notes: string, patient: Patient | null, user: User | null, rightEye: boolean, dateTaken: string) {
+  constructor(id: string, picturePath: string, classification: string, notes: string) {
     this.id = id;
     this.picturePath = picturePath;
     this.classification = classification;
     this.notes = notes;
-    this.patient = patient;
-    this.user = user;
-    this.rightEye = rightEye;
-    this.dateTaken = dateTaken;
+
   }
 }

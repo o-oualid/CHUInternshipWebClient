@@ -27,11 +27,6 @@ const routes: Routes = [
           pathMatch: 'prefix'
         },
         {
-          path: 'images',
-          loadChildren: () => import('./images/images.module').then(m => m.ImagesModule),
-          pathMatch: 'prefix'
-        },
-        {
           path: 'patients',
           loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule),
           pathMatch: 'prefix'

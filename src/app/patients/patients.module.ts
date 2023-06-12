@@ -6,7 +6,6 @@ import {ListPatientsComponent} from './list-patients/list-patients.component';
 import {CreatePatientComponent} from './create-patient/create-patient.component';
 import {PatientDetailsComponent} from './patient-details/patient-details.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ImagesModule} from "../images/images.module";
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import {ImagesModule} from "../images/images.module";
     CommonModule,
     PatientRoutingModule,
     ReactiveFormsModule,
-    ImagesModule,
     FormsModule,
 
   ]
