@@ -1,14 +1,12 @@
 <div *ngIf="patient && patient.consultations.length > 0">
   <div *ngIf="patient.consultations[selectedConsultationIndex].leftEye===null">
 
-    <form class="mt-8 grid grid-cols-2 gap-6">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8 grid grid-cols-2 gap-6">
       <div class="bg-gray-100 dark:bg-gray-900 block col-span-2 lg:col-span-1 p-4 rounded-md">
         <h1 class="text-xl text-gray-800 dark:text-gray-200 font-medium mb-2">Left Eye</h1>
         <div class="block col-span-2 sm:col-span-1">
-          <label
-            for="LefEyeImage"
-            class="block text-sm font-medium text-gray-700 dark:text-gray-200"
-          >
+          <label for="LefEyeImage"
+                 class="block text-sm font-medium text-gray-700 dark:text-gray-200">
             Image
           </label>
 
@@ -16,6 +14,7 @@
             type="file"
             id="LefEyeImage"
             class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+            formControlName="leftEyeImage"
           />
         </div>
         <div class="block">
@@ -29,7 +28,7 @@
           <select
             id="LefEyeClassification"
             class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-
+            formControlName="lefEyeClassification"
           >
             <option value="" selected disabled>--SELECT CLASSIFICATION--</option>
             <option value="UNKNOWN">Unknown</option>
@@ -52,7 +51,7 @@
             type="text"
             id="LeftEyeNotes"
             class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-
+            formControlName="lefEyeNotes"
           ></textarea>
 
         </div>
@@ -74,7 +73,7 @@
             type="file"
             id="Image"
             class="mt-1 w-full p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-
+            formControlName="rightEyeImage"
           />
         </div>
         <div class="block col-span-2 sm:col-span-1">
@@ -88,7 +87,7 @@
           <select
             id="Classification"
             class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-
+            formControlName="rightEyeClassification"
           >
             <option value="" selected disabled>--SELECT CLASSIFICATION--</option>
             <option value="UNKNOWN">Unknown</option>
@@ -111,15 +110,13 @@
             type="text"
             id="RightEyeNotes"
             class="w-full mt-1 p-2 ps-2.5 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-
+            formControlName="rightEyeNotes"
           ></textarea>
         </div>
       </div>
-
-
       <div class="col-span-full sm:flex sm:items-center sm:gap-4">
-        <input type="submit"
-               class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-white"
+        <input type="submit" [disabled]="form.invalid"
+               class="cursor-pointer disabled:opacity-50 inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-2 text-sm font-medium text-white transition enabled:hover:bg-transparent enabled:hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500 dark:enabled:hover:bg-blue-700 dark:enabled:hover:text-white"
                value="Submit"
         />
       </div>
@@ -151,8 +148,8 @@
         </div>
         <div class="absolute top-0 right-2 lg:right-60  m-2 text-white drop-shadow z-10 p-2 rounded-md">
           <h1 class="whitespace-nowrap">
-            Stade: {{isRightEyeSelected?
-            patient.consultations[selectedConsultationIndex].rightEye?.classification:
+            Stade: {{isRightEyeSelected ?
+            patient.consultations[selectedConsultationIndex].rightEye?.classification :
             patient.consultations[selectedConsultationIndex].leftEye?.classification}}</h1>
           <h1 class="whitespace-nowrap">Diabete: {{patient.diabetesType}}</h1>
         </div>
@@ -168,7 +165,6 @@
     <h1 class="text-xl">Consultations</h1>
     <table
       class="mt-2 select-none min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900 rounded-lg ">
-
       <tr>
         <th class="text-left whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Date</th>
         <th class="text-left whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">Left eye
