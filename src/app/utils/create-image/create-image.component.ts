@@ -23,10 +23,6 @@ export class CreateImageComponent {
     rightEyeNotes: '',
   });
 
-  submit() {
-
-  }
-
   public onLeftEyeImagesChanged(event: any) {
     if (event.target.files && event.target.files.length) {
       this.leftEye = event.target.files[0];
