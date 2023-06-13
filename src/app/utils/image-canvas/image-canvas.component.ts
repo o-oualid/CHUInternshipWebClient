@@ -19,9 +19,7 @@ export class ImageCanvasComponent implements AfterViewInit {
   private height: number = 100;
 
   constructor(@Inject(WINDOW) private windowRef: Window) {
-
   }
-
 
   whiteBoard!: WhiteBoard;
   private image?: Image;
@@ -74,11 +72,15 @@ export class ImageCanvasComponent implements AfterViewInit {
 
   toggleFilter(event: Event, filter: Filter) {
     if (!this.image) return;
-    if (this.image.filters().find(x => x === filter) !== undefined) {
+    if (this.isFilterActive(filter)) {
       this.image.filters([])
     } else {
       this.image.filters([filter]);
     }
+  }
+
+  isFilterActive(filter: Filter) {
+    return this.image !== undefined && (this.image.filters().find(x => x === filter) !== undefined);
   }
 
   ImageFromURL(
@@ -96,7 +98,5 @@ export class ImageCanvasComponent implements AfterViewInit {
     img.onerror = onError;
     img.crossOrigin = 'Anonymous';
     img.src = url;
-    ;
   }
-
 }
