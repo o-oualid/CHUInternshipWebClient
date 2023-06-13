@@ -24,7 +24,7 @@ export class ImageCanvasComponent implements AfterViewInit {
 
 
   whiteBoard!: WhiteBoard;
-  private image: Image = {} as Image;
+  private image?: Image;
 
   @Input() set src(value: string | undefined) {
     if (value)
@@ -34,6 +34,7 @@ export class ImageCanvasComponent implements AfterViewInit {
         image.cache();
         image.filters([]);
         this.image = image;
+        this.whiteBoard.mainLayer.removeChildren()
         this.whiteBoard.mainLayer.add(image);
       });
   }
@@ -72,6 +73,7 @@ export class ImageCanvasComponent implements AfterViewInit {
   }
 
   toggleFilter(event: Event, filter: Filter) {
+    if (!this.image) return;
     if (this.image.filters().find(x => x === filter) !== undefined) {
       this.image.filters([])
     } else {

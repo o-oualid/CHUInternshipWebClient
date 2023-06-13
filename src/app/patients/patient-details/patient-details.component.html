@@ -1,5 +1,5 @@
 <div *ngIf="patient && patient.consultations.length > 0">
-  <div *ngIf="patient.consultations[0].leftEye===null">
+  <div *ngIf="patient.consultations[selectedConsultationIndex].leftEye===null">
 
     <form class="mt-8 grid grid-cols-2 gap-6">
       <div class="bg-gray-100 dark:bg-gray-900 block col-span-2 lg:col-span-1 p-4 rounded-md">
@@ -126,7 +126,7 @@
     </form>
   </div>
 
-  <div *ngIf="patient.consultations[0].leftEye!==null">
+  <div *ngIf="patient.consultations[selectedConsultationIndex].leftEye!==null">
     <div class="col-span-full lg:col-span-3">
       <div class="flex">
         <a class="rounded-md bg-blue-600 text-white px-4 py-2 text-sm flex items-center active:shadow-inner shadow"
@@ -134,8 +134,14 @@
           <i class="bi bi-plus text-xl"></i>New Consultation</a>
       </div>
       <div class="grid grid-cols-2 text-sm mt-2">
-        <button class="bg-blue-700 rounded-l-md py-2 hover:shadow-inner text-white">Left Eye</button>
-        <button class="bg-blue-900 rounded-r-md py-2 hover:shadow-inner text-white">Right Eye</button>
+        <button
+          class="{{!isRightEyeSelected?'bg-blue-700':'bg-blue-900'}} rounded-l-md py-2 hover:shadow-inner text-white"
+          (click)="onLeftEyeSelected()">Left Eye
+        </button>
+        <button
+          class="{{isRightEyeSelected?'bg-blue-700':'bg-blue-900'}} rounded-r-md py-2 hover:shadow-inner text-white"
+          (click)="onRightEyeSelected()">Right Eye
+        </button>
       </div>
 
       <div class="relative">
@@ -145,11 +151,15 @@
           <h1 class="whitespace-nowrap">{{patient.region}}</h1>
         </div>
         <div class="absolute top-0 right-2 lg:right-60  m-2 text-white drop-shadow z-10 p-2 rounded-md">
-          <h1 class="whitespace-nowrap">Stade: {{patient.consultations[0].leftEye?.classification}}</h1>
+          <h1 class="whitespace-nowrap">
+            Stade: {{patient.consultations[selectedConsultationIndex].leftEye?.classification}}</h1>
           <h1 class="whitespace-nowrap">Diabete: {{patient.diabetesType}}</h1>
         </div>
         <app-image-canvas
-          [src]="environment.apiEndPoint+'/images/'+patient.consultations[0].leftEye?.picturePath | authenticate"></app-image-canvas>
+          [src]="environment.apiEndPoint+'/images/'+(isRightEyeSelected?
+          patient.consultations[selectedConsultationIndex].rightEye?.picturePath:
+          patient.consultations[selectedConsultationIndex].leftEye?.picturePath)
+        | authenticate"></app-image-canvas>
       </div>
     </div>
   </div>
@@ -168,7 +178,9 @@
           classification
         </th>
       </tr>
-      <tr *ngFor="let consultation of  patient.consultations" class="hover:shadow-inner cursor-pointer">
+      <tr *ngFor="let consultation of  patient.consultations"
+          (click)="onConsultationChanged(patient.consultations.indexOf(consultation))"
+          class="hover:shadow-inner cursor-pointer">
         <td class="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-200">
           {{consultation.date}}
         </td>

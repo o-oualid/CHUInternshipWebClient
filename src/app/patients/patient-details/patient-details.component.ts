@@ -43,4 +43,26 @@ export class PatientDetailsComponent implements OnInit {
   }
 
   protected readonly environment = environment;
+
+  selectedConsultationIndex = 0;
+  isRightEyeSelected = false;
+
+
+  onConsultationChanged(index: number) {
+    console.log(index)
+    if (this.selectedConsultationIndex != index) {
+      this.selectedConsultationIndex = index;
+      this.isRightEyeSelected = false;
+    }
+  }
+
+  onLeftEyeSelected() {
+    this.isRightEyeSelected = false;
+
+  }
+
+  onRightEyeSelected() {
+    this.isRightEyeSelected = true;
+  }
+
 }
