@@ -151,7 +151,9 @@
         </div>
         <div class="absolute top-0 right-2 lg:right-60  m-2 text-white drop-shadow z-10 p-2 rounded-md">
           <h1 class="whitespace-nowrap">
-            Stade: {{patient.consultations[selectedConsultationIndex].leftEye?.classification}}</h1>
+            Stade: {{isRightEyeSelected?
+            patient.consultations[selectedConsultationIndex].rightEye?.classification:
+            patient.consultations[selectedConsultationIndex].leftEye?.classification}}</h1>
           <h1 class="whitespace-nowrap">Diabete: {{patient.diabetesType}}</h1>
         </div>
         <app-image-canvas
