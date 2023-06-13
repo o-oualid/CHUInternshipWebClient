@@ -1,0 +1,22 @@
+<div class="grid grid-cols-4 gap-2">
+  <div id='canvas' class="mt-2 p-0 bg-gray-200 dark:bg-gray-800 h-min col-span-3 w-full"></div>
+  <div class="col-span-1 select-none">
+    <div class="flex justify-center flex-wrap bg-gray-100 dark:bg-gray-800 rounded-md p-2 mt-2 gap-1">
+      <h1 class="whitespace-nowrap text-xl w-full">Filters:</h1>
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner" (click)="toggleFilter($event,RedFilter)">
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner" (click)="toggleFilter($event,GreenFilter)">
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner"
+           (click)="toggleFilter($event,BlueFilter)">
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner"
+           (click)="toggleFilter($event,Grayscale)">
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner">
+      <img src="assets/12708_left.jpeg" width="100" height="100"
+           class="rounded-md cursor-pointer hover:shadow-inner">
+    </div>
+  </div>
+</div>

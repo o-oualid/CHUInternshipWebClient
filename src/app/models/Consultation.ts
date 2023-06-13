@@ -3,12 +3,12 @@ import {ImageDetails} from "./ImageDetails";
 
 export class Consultation {
 
-  id?: string;
-  patientId: string;
-  leftEye?: ImageDetails;
-  rightEye?: ImageDetails;
-  date: String;
-  notes: String;
+  public id?: string;
+  public patientId: string;
+  public leftEye?: ImageDetails;
+  public rightEye?: ImageDetails;
+  public date: String;
+  public notes: String;
 
   constructor(id: string, patientId: string, leftEye: ImageDetails, rightEye: ImageDetails, date: String, notes: String) {
     this.id = id;

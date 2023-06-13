@@ -19,7 +19,10 @@ export class ImagesService {
     const formData = new FormData();
     formData.append("imageDetails", new Blob([JSON.stringify(image)], {type: "application/json"}));
     formData.append("imageFile", file)
-    return this.http.post<Image>(environment.apiEndPoint + '/images', formData, {headers: headers, observe: 'response'});
+    return this.http.post<Image>(environment.apiEndPoint + '/images', formData, {
+      headers: headers,
+      observe: 'response'
+    });
   }
 
   getImages(page = 0, sort = "id", asc: boolean = true, size = 20) {
@@ -29,6 +32,10 @@ export class ImagesService {
 
   getImageDetails(id: string) {
     const headers: { Authorization: string } = {'Authorization': 'Bearer ' + localStorage.getItem("token")};
-    return this.http.get<ImageDetails>(`${environment.apiEndPoint}/images/details/${id}`, {headers: headers, observe: 'response'});
+    return this.http.get<ImageDetails>(`${environment.apiEndPoint}/images/details/${id}`, {
+      headers: headers,
+      observe: 'response'
+    });
   }
+
 }

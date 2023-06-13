@@ -14,7 +14,7 @@ export class PatientDetails {
   referable: boolean;
   discoveryDate: string;
   notes: string;
-  consultations: Consultation[];
+  public consultations: Consultation[];
 
   constructor(id: string, firstName: string, lastName: string, cin: string, birthDate: string, gender: string, phone: string, diabetesType: string, region: string, referable: boolean, discoveryDate: string, notes: string, consultations: Consultation[]) {
     this.id = id;
