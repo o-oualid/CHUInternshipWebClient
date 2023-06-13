@@ -13,21 +13,12 @@ import {PatientsService} from "../../services/patients.service";
 })
 export class CreateConsultationComponent implements OnInit {
 
-  leftEye: File = {} as File;
-  rightEye: File = {} as File;
   date = new Date();
   patientId: string = '';
   form = this.formBuilder.group({
     patient: ['', Validators.compose([Validators.required])],
     notes: [''],
     consultationDate: [formatDate(this.date, "yyyy-MM-dd", 'en-US'), Validators.compose([Validators.required])],
-    leftEyeImage:[''],
-    leftEyeClassification:[''],
-    leftEyeNotes:[],
-    rightEyeImage:[''],
-    rightEyeClassification:[''],
-    rightEyeNotes:[]
-
   });
 
   constructor(private formBuilder: FormBuilder,
@@ -63,15 +54,5 @@ export class CreateConsultationComponent implements OnInit {
     });
   }
 
-  public onLeftEyeImagesChanged(event: any) {
-    if (event.target.files && event.target.files.length) {
-      this.leftEye = event.target.files[0];
-    }
-  }
 
-  public onRightEyeImagesChanged(event: any) {
-    if (event.target.files && event.target.files.length) {
-      this.rightEye = event.target.files[0];
-    }
-  }
 }

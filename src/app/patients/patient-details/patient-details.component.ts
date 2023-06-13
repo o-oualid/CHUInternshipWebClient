@@ -4,7 +4,6 @@ import {mergeMap} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PatientDetails} from "../../models/PatientDetails";
 import {environment} from "../../../environments/environment";
-import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-patient-details',
@@ -16,20 +15,12 @@ export class PatientDetailsComponent implements OnInit {
   patient?: PatientDetails;
   age = 0;
   protected readonly Date = Date;
-  form = this.formBuilder.group({
-    leftEyeImage:['',Validators.required],
-    leftEyeClassification:['',Validators.required],
-    leftEyeNotes:'',
-    rightEyeImage:['',Validators.required],
-    rightEyeClassification:['',Validators.required],
-    rightEyeNotes:'',
-  });
+
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private patientService: PatientsService,
-    private formBuilder: FormBuilder
   ) {
   }
 
@@ -71,9 +62,5 @@ export class PatientDetailsComponent implements OnInit {
 
   onRightEyeSelected() {
     this.isRightEyeSelected = true;
-  }
-
-  submit() {
-
   }
 }
