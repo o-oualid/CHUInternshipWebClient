@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Quiz} from "../../models/Quiz";
-import {Answer} from "../../models/Answer";
 
 @Component({
   selector: 'app-knowledge',
   templateUrl: './knowledge.component.html',
-  styleUrls: ['./knowledge.component.css']
 })
 export class KnowledgeComponent {
 

@@ -8,7 +8,6 @@ import {mergeMap} from "rxjs";
 @Component({
   selector: 'app-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private usersService: UsersService, private router: Router, private route: ActivatedRoute,) {

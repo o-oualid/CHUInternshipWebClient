@@ -4,7 +4,6 @@ import {FormBuilder, Validators} from "@angular/forms";
 @Component({
   selector: 'app-security',
   templateUrl: './account-security.component.html',
-  styleUrls: ['./account-security.component.css']
 })
 export class AccountSecurityComponent {
 

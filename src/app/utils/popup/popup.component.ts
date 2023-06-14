@@ -2,8 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-popup',
-  templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  templateUrl: './popup.component.html'
 })
 export class PopupComponent {
   @Input() title: string = '';

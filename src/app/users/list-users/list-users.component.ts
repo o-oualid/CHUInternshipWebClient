@@ -7,7 +7,6 @@ import {range} from "../../utils/Range";
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
 

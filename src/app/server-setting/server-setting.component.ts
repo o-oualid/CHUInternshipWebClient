@@ -6,7 +6,6 @@ import {PopupComponent} from "../utils/popup/popup.component";
 @Component({
   selector: 'app-server-setting',
   templateUrl: './server-setting.component.html',
-  styleUrls: ['./server-setting.component.css']
 })
 export class ServerSettingComponent {
   diabetesType: string = '';

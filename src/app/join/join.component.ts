@@ -9,7 +9,6 @@ import {mergeMap} from "rxjs";
 @Component({
   selector: 'app-invite',
   templateUrl: './join.component.html',
-  styleUrls: ['./join.component.css']
 })
 export class JoinComponent implements OnInit {
 

@@ -8,7 +8,6 @@ import {environment} from "../../../environments/environment";
 @Component({
   selector: 'app-patient-details',
   templateUrl: './patient-details.component.html',
-  styleUrls: ['./patient-details.component.css']
 })
 export class PatientDetailsComponent implements OnInit {
 

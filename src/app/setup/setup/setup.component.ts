@@ -5,7 +5,6 @@ import {SetupService} from "../setup.service";
 @Component({
   selector: 'app-setup',
   templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.css']
 })
 export class SetupComponent {
   constructor(private formBuilder: FormBuilder, private setupService: SetupService) {

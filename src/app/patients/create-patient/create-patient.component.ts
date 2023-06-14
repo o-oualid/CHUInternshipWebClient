@@ -9,7 +9,6 @@ import {RegionsService} from "../../services/regions.service";
 @Component({
   selector: 'app-create-patient',
   templateUrl: './create-patient.component.html',
-  styleUrls: ['./create-patient.component.css']
 })
 export class CreatePatientComponent implements OnInit {
 

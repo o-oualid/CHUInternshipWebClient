@@ -10,7 +10,6 @@ import Util = Konva.Util;
 @Component({
   selector: 'app-image-canvas',
   templateUrl: './image-canvas.component.html',
-  styleUrls: ['./image-canvas.component.css']
 })
 export class ImageCanvasComponent implements AfterViewInit {
 

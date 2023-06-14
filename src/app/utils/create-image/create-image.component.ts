@@ -4,7 +4,6 @@ import {FormBuilder, Validators} from "@angular/forms";
 @Component({
   selector: 'app-create-image',
   templateUrl: './create-image.component.html',
-  styleUrls: ['./create-image.component.css']
 })
 export class CreateImageComponent {
 

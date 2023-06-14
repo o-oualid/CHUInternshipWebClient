@@ -4,7 +4,6 @@ import {state} from "@angular/animations";
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.css']
 })
 export class BaseComponent {
 

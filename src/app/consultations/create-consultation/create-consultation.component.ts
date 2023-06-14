@@ -9,7 +9,6 @@ import {PatientsService} from "../../services/patients.service";
 @Component({
   selector: 'app-create-consultation',
   templateUrl: './create-consultation.component.html',
-  styleUrls: ['./create-consultation.component.css']
 })
 export class CreateConsultationComponent implements OnInit {
 
