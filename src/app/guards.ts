@@ -1,6 +1,6 @@
 import {ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
 import {inject} from "@angular/core";
-import {SetupService} from "./setup/setup.service";
+import {SetupService} from "./modules/setup/setup.service";
 import {map, Observable} from "rxjs";
 
 

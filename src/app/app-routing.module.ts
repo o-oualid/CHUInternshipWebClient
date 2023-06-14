@@ -1,19 +1,19 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {LoginComponent} from "./login/login.component";
+import {NotFoundComponent} from "./shared/components/not-found/not-found.component";
+import {LoginComponent} from "./shared/components/login/login.component";
 import {isInvited, isLoggedIn, isNotLoggedIn, isServerNotSetup, isServerSetup} from "./guards";
-import {BaseComponent} from "./core/base/base.component";
-import {AccountDetailsComponent} from "./account/details/account-details.component";
-import {AccountSecurityComponent} from "./account/security/account-security.component";
-import {JoinComponent} from "./join/join.component";
-import {ServerSettingComponent} from "./server-setting/server-setting.component";
+import {BaseComponent} from "./shared/components/core/base/base.component";
+import {AccountDetailsComponent} from "./shared/components/account/details/account-details.component";
+import {AccountSecurityComponent} from "./shared/components/account/security/account-security.component";
+import {JoinComponent} from "./shared/components/join/join.component";
+import {ServerSettingComponent} from "./shared/components/server-setting/server-setting.component";
 
 const routes: Routes = [
     {
       path: "setup",
       canActivate: [isServerNotSetup],
-      loadChildren: () => import('./setup/setup.module').then(m => m.SetupModule),
+      loadChildren: () => import('./modules/setup/setup.module').then(m => m.SetupModule),
       pathMatch: 'full'
     },
     {path: 'login', canActivate: [isServerSetup, isNotLoggedIn], component: LoginComponent, pathMatch: 'full'},
@@ -23,22 +23,22 @@ const routes: Routes = [
       children: [
         {
           path: 'users',
-          loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+          loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule),
           pathMatch: 'prefix'
         },
         {
           path: 'patients',
-          loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule),
+          loadChildren: () => import('./modules/patients/patients.module').then(m => m.PatientsModule),
           pathMatch: 'prefix'
         },
         {
           path: 'consultations',
-          loadChildren: () => import('./consultations/consultations.module').then(m => m.ConsultationsModule),
+          loadChildren: () => import('./modules/consultations/consultations.module').then(m => m.ConsultationsModule),
           pathMatch: 'prefix'
         },
         {
           path: 'e-learning',
-          loadChildren: () => import('./e-learning/e-learning.module').then(m => m.ELearningModule),
+          loadChildren: () => import('./modules/e-learning/e-learning.module').then(m => m.ELearningModule),
           pathMatch: 'prefix'
         },
         {path: 'account/details', component: AccountDetailsComponent, pathMatch: 'full'},
